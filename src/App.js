@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react'
+import Header from './componets/Header'
+import Footer from './componets/Footer'
+import { ColorModeProdvider } from './componets/Theme/index'
+import { BrowserRouter as Router } from 'react-router-dom'
+import Pathes from './pages/Route'
+import { Paper } from '@mui/material'
+import { GlobalAuthProvider } from './componets/UserContext/Provider'
+import CustomeAlert from './pages/Login/CustomeAlert'
+import Loadnig from './componets/Loading'
+import { GoogleOAuthProvider } from '@react-oauth/google'
 
-function App() {
+const clientId = process.env.REACT_APP_GOOGLE_ID
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <GoogleOAuthProvider clientId={clientId}>
+      <ColorModeProdvider>
+        <GlobalAuthProvider>
+          <Loadnig />
+          <CustomeAlert />
+          <Router>
+            <Paper>
+              <Header />
+              <Pathes />
+              <Footer />
+            </Paper>
+          </Router>
+        </GlobalAuthProvider>
+      </ColorModeProdvider>
+    </GoogleOAuthProvider>
+  )
 }
-
-export default App;

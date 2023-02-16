@@ -1,0 +1,17 @@
+.filterss {
+ margin-bottom: 10;
+ margin-right: 5rem;
+ margin-left: 5rem;
+ min-width: 5rem;
+ padding: 0.5em .5rem;
+ border:none;
+ background: white;
+ color :#956778;
+ border-radius:.5rem;
+ font-weight: bold;
+ cursor: pointer;
+}
+button.active{
+background:rgb(185, 5, 59) ;
+color: inherit;
+}

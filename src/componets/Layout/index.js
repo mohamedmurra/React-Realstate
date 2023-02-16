@@ -1,0 +1,131 @@
+import React, { useState, useEffect, useContext } from 'react'
+import { Grid, Container, IconButton, Box, Tooltip } from '@mui/material'
+import HouseCard from '../Card'
+import { motion } from 'framer-motion'
+import api from '../../utils/fetching'
+import { GlobalAuth } from '../../componets/UserContext/Provider'
+import Paginate from '../Pagintion'
+import Sidebar from './Sidebar'
+import { Search, Sort } from '@mui/icons-material'
+
+const Layout = () => {
+  const {
+    state: { filter, fave },
+    dispatch,
+  } = useContext(GlobalAuth)
+  const [prope, setprope] = useState([])
+  const [filterd, setfilterd] = useState([])
+  const [porpose, setporpose] = useState('all')
+  const [option, setoption] = useState([])
+  const [Page, setPage] = useState(1)
+  const [num, setnum] = useState(1)
+  const [show, setshow] = useState(false)
+  const [open, setopen] = useState(false)
+
+  const getoption = async () => {
+    try {
+      let { data } = await api.get('api/home/searsh-filter/')
+      setoption(data)
+    } catch (error) {
+      if (!error.response) {
+        dispatch({
+          type: 'alert',
+          payload: {
+            open: true,
+            severity: 'error',
+            message: 'No Server Response',
+          },
+        })
+      }
+      dispatch({ type: 'end_loading' })
+      dispatch({
+        type: 'alert',
+        payload: {
+          open: true,
+          severity: 'error',
+          message: error.response.statusText,
+        },
+      })
+    }
+  }
+
+  const getdata = async () => {
+    try {
+      let { data } = await api.get(
+        `api/home/?ordering=${filter.ordering}&aria=${filter.aria}&building_type=${filter.building_type}&property_type=${filter.property_type}&num_rooms=${filter.num_rooms}&status=${filter.status}&page=${filter.page}&search=${filter.search}&min_price=${filter.min_price}&max_price=${filter.max_price}&bathrooms=${filter.bathrooms}`
+      )
+      setprope(data?.results)
+      setfilterd(data?.results)
+      setnum(data?.total_pages)
+      setshow(true)
+
+      dispatch({ type: 'end_loading' })
+    } catch (error) {
+      dispatch({ type: 'end_loading' })
+      dispatch({
+        type: 'alert',
+        payload: { open: true, severity: 'error', message: error.message },
+      })
+    }
+  }
+
+  useEffect(() => {
+    document.title = 'العقارات'
+    getdata()
+    getoption()
+  }, [filter, fave])
+
+  return (
+    <motion.div
+      initial={{ width: 0 }}
+      animate={{ width: '100%' }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}
+    >
+      <Container sx={{ marginTop: 2, minHeight: '79vh' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+          }}
+        >
+          <Tooltip title='بحث & ترتيب'>
+            <IconButton
+              sx={{ background: 'rgb(185, 5, 59)', mb: 2 }}
+              size='large'
+              onClick={() => setopen(true)}
+            >
+              <Search sx={{ fontSize: '1rem' }} aria-label='Filter' />
+            </IconButton>
+          </Tooltip>
+        </Box>
+
+        <Sidebar
+          {...{
+            open,
+            setopen,
+            option,
+            prope,
+            setfilterd,
+            setporpose,
+            porpose,
+            filterd,
+          }}
+        />
+
+        <motion.div layout>
+          <Grid container spacing={3}>
+            {filterd?.map((hou) => (
+              <Grid key={hou.id} item xs={12} md={6} lg={4}>
+                <HouseCard hou={hou} />
+              </Grid>
+            ))}
+          </Grid>
+        </motion.div>
+        {show && <Paginate dpage={filter.page} Page={num} setPage={setPage} />}
+      </Container>
+    </motion.div>
+  )
+}
+
+export default Layout
