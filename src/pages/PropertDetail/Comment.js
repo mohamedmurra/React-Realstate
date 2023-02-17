@@ -8,6 +8,7 @@ import { GlobalAuth } from '../../componets/UserContext/Provider'
 import moment from 'moment'
 
 const url = process.env.REACT_APP_POINT
+const ImgApi = process.env.REACT_APP_IMAGE_URL
 
 const Comment = ({ com, replays, proper }) => {
   const {
@@ -19,7 +20,7 @@ const Comment = ({ com, replays, proper }) => {
       <Box display='flex' flexDirection='row'>
         <Avatar
           style={{ width: 50, height: 50 }}
-          src={`${url}${com.user.image}`}
+          src={`${ImgApi}${com.user.image}`}
         />
         <Box sx={{ flexDirection: 'column', marginLeft: 1 }}>
           <Typography component='p' variant='h6'>

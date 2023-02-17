@@ -12,6 +12,7 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp'
 import Slider from 'react-slick'
 import HouseCard from '../../componets/Latest-Property/card'
 import { GlobalAuth } from '../../componets/UserContext/Provider'
+const ImgApi = process.env.REACT_APP_IMAGE_URL
 
 const AgentDetail = () => {
   const [info, setInfo] = useState([])
@@ -87,7 +88,7 @@ const AgentDetail = () => {
               component='img'
               height='500'
               width='150'
-              image={agent.image}
+              image={`${ImgApi}${agent.image}`}
               alt={agent.username}
             />
           </Card>

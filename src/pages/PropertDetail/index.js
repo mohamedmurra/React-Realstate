@@ -44,6 +44,7 @@ import './swiper.css'
 import { FaHeart } from 'react-icons/fa'
 import usePrivateRoute from '../../hooks.js/usePrivateRoute'
 const url = process.env.REACT_APP_POINT
+const ImgApi = process.env.REACT_APP_IMAGE_URL
 
 const PropertyDetail = () => {
   const PrivateRoute = usePrivateRoute()
@@ -149,7 +150,7 @@ const PropertyDetail = () => {
           {house?.images?.map(({ image, id }) => (
             <SwiperSlide key={id}>
               <div className='swiper-zoom-container'>
-                <img src={`${url}${image}`} alt={id} />
+                <img src={`${ImgApi}${image}`} alt={id} />
               </div>
             </SwiperSlide>
           ))}

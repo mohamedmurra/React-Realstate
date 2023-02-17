@@ -9,14 +9,14 @@ import millify from 'millify'
 import { Link } from 'react-router-dom'
 
 const url = process.env.REACT_APP_POINT
-
+const ImgApi = process.env.REACT_APP_IMAGE_URL
 const HouseCard = ({ hou }) => {
   return (
     <Paper style={{ margin: 10 }} elevation={5}>
       <CardMedia
         component='img'
         height='300'
-        image={`${url}${hou.cover}`}
+        image={`${ImgApi}${hou.cover}`}
         alt={hou.title}
       />
       <Link

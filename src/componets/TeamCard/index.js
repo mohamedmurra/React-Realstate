@@ -6,6 +6,7 @@ import FacebookIcon from '@mui/icons-material/Facebook'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import WhatsAppIcon from '@mui/icons-material/WhatsApp'
 import agent from '../../assets/agent-1.png'
+const ImgApi = process.env.REACT_APP_IMAGE_URL
 
 const TeamCard = ({ member }) => {
   const { image, first_name, last_name, email, phone_number, id, describe } =
@@ -15,7 +16,7 @@ const TeamCard = ({ member }) => {
       <div className='card-box-d'>
         <div className='card-img-d'>
           <img
-            src={image ? image : agent}
+            src={image ? `${ImgApi}${image}` : agent}
             alt={email}
             className='img-d img-fluid'
           />

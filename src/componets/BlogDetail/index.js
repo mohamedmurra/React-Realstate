@@ -47,7 +47,7 @@ const BlogDetail = () => {
   }, [])
 
   const member = blog.auther ? blog.auther : {}
-
+  const ImgApi = process.env.REACT_APP_IMAGE_URL
   return (
     <div className='container'>
       <div className='row'>
@@ -64,7 +64,7 @@ const BlogDetail = () => {
               style={{ marginTop: 10 }}
               component='img'
               height='450'
-              image={blog.image}
+              image={`${ImgApi}${blog.image}`}
             />
             <CalendarMonthIcon
               style={{ color: 'orangered', fontSize: '1.2rem' }}

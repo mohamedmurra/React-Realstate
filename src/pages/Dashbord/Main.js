@@ -47,6 +47,8 @@ function Main({ link, setselected }) {
     setselected(link)
   }, [])
   const url = process.env.REACT_APP_POINT
+  const ImgApi = process.env.REACT_APP_IMAGE_URL
+
   return (
     <Box
       sx={{
@@ -104,7 +106,10 @@ function Main({ link, setselected }) {
               <Box key={ara.id}>
                 <ListItem>
                   <ListItemAvatar>
-                    <Avatar alt={ara?.username} src={`${url}${ara?.image}`} />
+                    <Avatar
+                      alt={ara?.username}
+                      src={`${ImgApi}${ara?.image}`}
+                    />
                   </ListItemAvatar>
                   <ListItemText
                     primary={ara?.email}
@@ -130,7 +135,7 @@ function Main({ link, setselected }) {
                   <ListItemAvatar>
                     <Avatar
                       alt={ara?.title}
-                      src={`${url}${ara?.cover}`}
+                      src={`${ImgApi}${ara?.cover}`}
                       variant='rounded'
                     />
                   </ListItemAvatar>

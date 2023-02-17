@@ -15,7 +15,7 @@ import { useNavigate } from 'react-router-dom'
 import { HasPerm } from '../../pages/Dashbord/Perms'
 import Profile from '../../pages/Profile'
 
-
+const ImgApi = process.env.REACT_APP_IMAGE_URL
 const UserMenu = () => {
   const AuthVal = useContext(GlobalAuth)
   const {
@@ -61,7 +61,7 @@ const UserMenu = () => {
             {!user.image ? (
               <Avatar alt={user.username} />
             ) : (
-              <Avatar alt={user.username} src={user.image} />
+              <Avatar alt={user.username} src={`${ImgApi}${user.image}`} />
             )}
           </IconButton>
         </Tooltip>

@@ -103,7 +103,7 @@ const Stepss = ({ link, setselected }) => {
     } else {
       setComplete(1, false)
     }
-    if (detail.cover && detail.slug.length > 5) {
+    if (detail.cover && detail.slug.length > 1) {
       if (!steps[2].completed) setComplete(2, true)
     } else {
       setComplete(2, false)

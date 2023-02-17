@@ -14,6 +14,7 @@ import { useNavigate } from 'react-router-dom'
 import ControlledAccordions from './about'
 
 const url = process.env.REACT_APP_POINT
+const ImgApi = process.env.REACT_APP_IMAGE_URL
 
 const About = () => {
   const navigate = useNavigate()
@@ -100,7 +101,7 @@ const About = () => {
             <div className='row'>
               <div className='col-12 col-lg-4'>
                 <img
-                  src={`${url}${admi?.image}`}
+                  src={`${ImgApi}${admi?.image}`}
                   alt='profile'
                   className='img-fluid'
                 />

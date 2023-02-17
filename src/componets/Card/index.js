@@ -12,7 +12,7 @@ import usePrivateRoute from '../../hooks.js/usePrivateRoute'
 import { useContext } from 'react'
 import { GlobalAuth } from '../UserContext/Provider'
 const url = process.env.REACT_APP_POINT
-
+const ImgApi = process.env.REACT_APP_IMAGE_URL
 const HouseCard = ({ hou }) => {
   const {
     dispatch,
@@ -55,7 +55,7 @@ const HouseCard = ({ hou }) => {
         <CardMedia
           component='img'
           height='300'
-          image={hou.cover}
+          image={`${ImgApi}${hou.cover}`}
           alt={hou.title}
         />
 

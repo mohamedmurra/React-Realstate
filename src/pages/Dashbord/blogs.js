@@ -12,6 +12,7 @@ import React, { useEffect, useMemo, useState } from 'react'
 import usePrivateRoute from '../../hooks.js/usePrivateRoute'
 import { grey } from '@mui/material/colors'
 import BlogActions from './BlogActions'
+const ImgApi = process.env.REACT_APP_IMAGE_URL
 
 function Blogs({ link, setselected }) {
   const PrivateApi = usePrivateRoute()
@@ -26,7 +27,7 @@ function Blogs({ link, setselected }) {
         headerName: 'Image',
         widht: 60,
         renderCell: (params) => (
-          <Avatar variant='rounded' src={params.row.image} />
+          <Avatar variant='rounded' src={`${ImgApi}${params.row.image}`} />
         ),
         sartable: false,
         filterable: false,
@@ -54,7 +55,7 @@ function Blogs({ link, setselected }) {
         widht: 50,
         renderCell: (params) => (
           <Tooltip title={params.row.auther?.username}>
-            <Avatar src={params.row.auther?.image} />
+            <Avatar src={`${ImgApi}${params.row.auther?.image}`} />
           </Tooltip>
         ),
       },

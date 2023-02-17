@@ -14,6 +14,7 @@ import { grey } from '@mui/material/colors'
 import NumberFormat from 'react-number-format'
 import RoomActions from './RoomActions'
 import { GlobalAuth } from '../../componets/UserContext/Provider'
+const ImgApi = process.env.REACT_APP_IMAGE_URL
 
 function Propertes({ link, setselected }) {
   const PrivateApi = usePrivateRoute()
@@ -31,7 +32,7 @@ function Propertes({ link, setselected }) {
         headerName: 'cover',
         width: 60,
         renderCell: (params) => (
-          <Avatar variant='rounded' src={params.row.cover} />
+          <Avatar variant='rounded' src={`${ImgApi}${params.row.cover}`} />
         ),
         sartable: false,
         filterable: false,
@@ -80,7 +81,7 @@ function Propertes({ link, setselected }) {
         width: 60,
         renderCell: (params) => (
           <Tooltip title={params.row.Agent?.username}>
-            <Avatar src={params.row.Agent?.image} />
+            <Avatar src={`${ImgApi}${params.row.Agent?.image}`} />
           </Tooltip>
         ),
       },

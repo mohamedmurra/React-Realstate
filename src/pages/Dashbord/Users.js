@@ -9,6 +9,7 @@ import UserActions from './UserActions'
 import { GlobalAuth } from '../../componets/UserContext/Provider'
 
 const url = process.env.REACT_APP_POINT
+const ImgApi = process.env.REACT_APP_IMAGE_URL
 
 function Users({ link, setselected }) {
   const PrivateApi = usePrivateRoute()
@@ -29,7 +30,7 @@ function Users({ link, setselected }) {
               headerName: 'Avatar',
               width: 60,
               renderCell: (params) => (
-                <Avatar src={`${url}${params.row.image}`} />
+                <Avatar src={`${ImgApi}${params.row.image}`} />
               ),
               sartable: false,
               filterable: false,
@@ -85,7 +86,9 @@ function Users({ link, setselected }) {
               field: 'image',
               headerName: 'Avatar',
               width: 60,
-              renderCell: (params) => <Avatar src={params.row.image} />,
+              renderCell: (params) => (
+                <Avatar src={`${ImgApi}${params.row.image}`} />
+              ),
               sartable: false,
               filterable: false,
             },

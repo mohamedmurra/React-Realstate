@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { FaAngleDoubleRight } from 'react-icons/fa'
 
 const url = process.env.REACT_APP_POINT
-
+const ImgApi = process.env.REACT_APP_IMAGE_URL
 const Testimonial = ({ Testo, len }) => {
   const settings = {
     dots: true,

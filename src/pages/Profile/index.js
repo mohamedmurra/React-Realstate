@@ -14,6 +14,7 @@ import {
 import { GlobalAuth } from '../../componets/UserContext/Provider'
 import usePrivateRoute from '../../hooks.js/usePrivateRoute'
 import { grey } from '@mui/material/colors'
+const ImgApi = process.env.REACT_APP_IMAGE_URL
 
 function Profile() {
   const Private = usePrivateRoute()
@@ -124,7 +125,11 @@ function Profile() {
               />
               <Avatar
                 sx={{ width: 75, height: 75, cursor: 'pointer' }}
-                src={OpenProfile.imgUri ? OpenProfile.imgUri : user.image}
+                src={
+                  OpenProfile.imgUri
+                    ? OpenProfile.imgUri
+                    : `${ImgApi}${user.image}`
+                }
               />
             </label>
             <TextField

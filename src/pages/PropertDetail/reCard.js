@@ -8,6 +8,7 @@ import { MdOutlineBed } from 'react-icons/md'
 import millify from 'millify'
 import { Link } from 'react-router-dom'
 const url = process.env.REACT_APP_POINT
+const ImgApi = process.env.REACT_APP_IMAGE_URL
 
 const HouseCard = ({ hou }) => {
   return (
@@ -16,7 +17,7 @@ const HouseCard = ({ hou }) => {
         <CardMedia
           component='img'
           height='300'
-          image={`${url}${hou.cover}`}
+          image={`${ImgApi}${hou.cover}`}
           alt={hou.title}
         />
         <Link

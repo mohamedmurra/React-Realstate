@@ -2,6 +2,7 @@ import React from 'react'
 import { Card, CardHeader, CardMedia, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
 
+const ImgApi = process.env.REACT_APP_IMAGE_URL
 const BlogCard = ({ post }) => {
   return (
     <>
@@ -9,7 +10,7 @@ const BlogCard = ({ post }) => {
         <CardMedia
           component='img'
           height='350'
-          image={post.image}
+          image={`${ImgApi}${post.image}`}
           alt={post.title}
         />
         <div className='catagory'>

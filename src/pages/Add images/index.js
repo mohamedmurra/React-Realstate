@@ -21,6 +21,7 @@ import usePrivateRoute from '../../hooks.js/usePrivateRoute'
 import { Cancel, Send } from '@mui/icons-material'
 
 const url = process.env.REACT_APP_POINT
+const ImgApi = process.env.REACT_APP_IMAGE_URL
 
 const AddImages = ({ link, setselected }) => {
   const { dispatch } = useContext(GlobalAuth)
@@ -271,7 +272,7 @@ const AddImages = ({ link, setselected }) => {
               <ImageListItem rows={1} cols={1} key={img.id}>
                 <img
                   style={{ height: '100%' }}
-                  src={`${url}${img.image}`}
+                  src={`${ImgApi}${img.image}`}
                   loading='lazy'
                   alt='images'
                 />

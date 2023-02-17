@@ -44,6 +44,7 @@ import Propertes from './propertes'
 import Blogs from './blogs'
 import { HasPerm } from './Perms'
 import AddExtra from './AddExtra'
+const ImgApi = process.env.REACT_APP_IMAGE_URL
 
 const drawerWidth = 240
 
@@ -299,7 +300,7 @@ export default function MiniDrawer() {
             >
               <Avatar
                 {...(open && { sx: { width: 100, height: 100 } })}
-                src={user.image}
+                src={`${ImgApi}${user.image}`}
               />
             </Tooltip>
           </Box>
