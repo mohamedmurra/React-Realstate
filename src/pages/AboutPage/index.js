@@ -38,6 +38,7 @@ const About = () => {
       dispatch({ type: 'start_loading' })
       let { data } = await api.get(`api/admin/contact/`)
       setadmin(data)
+      console.log(data)
       dispatch({ type: 'end_loading' })
     } catch (error) {
       dispatch({ type: 'end_loading' })
