@@ -11,6 +11,7 @@ import { GlobalAuth } from '../../componets/UserContext/Provider'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import api from '../../utils/fetching'
 import ProSlider from './ProSlider'
+import 'mapbox-gl/dist/mapbox-gl.css'
 
 const MapApi = process.env.REACT_APP_MapBox
 
