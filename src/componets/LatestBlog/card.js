@@ -2,7 +2,7 @@ import React from 'react'
 import {Card,CardHeader,CardMedia,Typography} from '@mui/material'
 import {Link} from 'react-router-dom'
 
-const url = process.env.REACT_APP_POINT
+
 const ImgApi = process.env.REACT_APP_IMAGE_URL
 
 const BlogCard = ({post}) => {

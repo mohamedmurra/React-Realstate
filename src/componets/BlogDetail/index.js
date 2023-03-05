@@ -11,39 +11,43 @@ const BlogDetail = () => {
   const { dispatch } = useContext(GlobalAuth)
   const [blog, setblog] = useState({})
   const post = useParams()
-  const getBlogD = async () => {
-    try {
-      dispatch({ type: 'start_loading' })
-      let { data } = await api.get(`/api/blog/${post.blogID}/`)
-      setblog(data)
-      dispatch({ type: 'end_loading' })
-    } catch (error) {
-      if (!error?.response) {
+
+  useEffect(() => {
+    document.title = 'تفاصيل المنشور'
+    const abortController = new AbortController()
+    const getBlogD = async () => {
+      try {
+        dispatch({ type: 'start_loading' })
+        let { data } = await api.get(`/api/blog/${post.blogID}/`)
+        setblog(data)
+        dispatch({ type: 'end_loading' })
+      } catch (error) {
+        if (!error?.response) {
+          dispatch({ type: 'end_loading' })
+          dispatch({
+            type: 'alert',
+            payload: {
+              open: true,
+              severity: 'error',
+              message: 'No Server Response',
+            },
+          })
+        }
         dispatch({ type: 'end_loading' })
         dispatch({
           type: 'alert',
           payload: {
             open: true,
             severity: 'error',
-            message: 'No Server Response',
+            message: error.response.statusText,
           },
         })
       }
-      dispatch({ type: 'end_loading' })
-      dispatch({
-        type: 'alert',
-        payload: {
-          open: true,
-          severity: 'error',
-          message: error.response.statusText,
-        },
-      })
     }
-  }
-
-  useEffect(() => {
-    document.title = 'تفاصيل المنشور'
     getBlogD()
+    return () => {
+      abortController.abort()
+    }
   }, [])
 
   const member = blog.auther ? blog.auther : {}

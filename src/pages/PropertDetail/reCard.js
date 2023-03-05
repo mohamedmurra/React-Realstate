@@ -7,7 +7,7 @@ import { BsGridFill } from 'react-icons/bs'
 import { MdOutlineBed } from 'react-icons/md'
 import millify from 'millify'
 import { Link } from 'react-router-dom'
-const url = process.env.REACT_APP_POINT
+
 const ImgApi = process.env.REACT_APP_IMAGE_URL
 
 const HouseCard = ({ hou }) => {

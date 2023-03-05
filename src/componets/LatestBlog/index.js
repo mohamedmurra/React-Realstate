@@ -47,19 +47,19 @@ const LatestBlog = ({ Lblog }) => {
     <div className='' style={{ marginTop: 50 }}>
       <Container>
         <Typography
-          variant='h3'
           style={{ color: 'inhert', marginTop: 30, marginBottom: 25 }}
-          component='h1'
+          variant='h4'
+          component='h5'
           textAlign='center'
         >
-          <span style={{ borderBottom: '1px solid blue' }}>
+          <span style={{ borderBottom: '1px solid #B00020' }}>
             {' '}
             أخر منشورات تم أضافتها
           </span>{' '}
         </Typography>
         <Link style={{ textDecoration: 'none', color: 'inherit' }} to='/blog'>
           <Typography
-            variant='h6'
+            variant='p'
             style={{ color: 'inhert', marginTop: 20 }}
             component='h5'
             textAlign='right'

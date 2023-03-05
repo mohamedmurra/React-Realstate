@@ -13,7 +13,6 @@ import { GlobalAuth } from '../../componets/UserContext/Provider'
 import { useNavigate } from 'react-router-dom'
 import ControlledAccordions from './about'
 
-const url = process.env.REACT_APP_POINT
 const ImgApi = process.env.REACT_APP_IMAGE_URL
 
 const About = () => {
@@ -35,11 +34,10 @@ const About = () => {
     })
   }
   const getadmin = async () => {
+    dispatch({ type: 'start_loading' })
     try {
-      dispatch({ type: 'start_loading' })
       let { data } = await api.get(`api/admin/contact/`)
       setadmin(data)
-      console.log(data)
       dispatch({ type: 'end_loading' })
     } catch (error) {
       dispatch({ type: 'end_loading' })

@@ -20,7 +20,7 @@ import { useDropzone } from 'react-dropzone'
 import usePrivateRoute from '../../hooks.js/usePrivateRoute'
 import { Cancel, Send } from '@mui/icons-material'
 
-const url = process.env.REACT_APP_POINT
+
 const ImgApi = process.env.REACT_APP_IMAGE_URL
 
 const AddImages = ({ link, setselected }) => {
@@ -70,8 +70,8 @@ const AddImages = ({ link, setselected }) => {
   const handelSubmit = () => {
     for (let i = 0; i < files.length; i++) {
       const sendimg = async () => {
+        dispatch({ type: 'start_loading' })
         try {
-          dispatch({ type: 'start_loading' })
           await Private.post(
             'api/home/add-images/',
             { proper: ids, image: files[i] },

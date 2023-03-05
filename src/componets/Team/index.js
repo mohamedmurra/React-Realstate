@@ -44,12 +44,12 @@ const TeamMember = ({ Team }) => {
   return (
     <div className='container mt-5 carousel '>
       <Typography
-        variant='h3'
         style={{ color: 'inhert', marginTop: 30, marginBottom: 25 }}
-        component='h1'
+        variant='h4'
+        component='h5'
         textAlign='center'
       >
-        <span style={{ borderBottom: '1px solid blue' }}>أدراة الموقع </span>{' '}
+        <span style={{ borderBottom: '1px solid #B00020' }}>أدراة الموقع </span>{' '}
       </Typography>
       <Slider {...settings}>
         {Team.map((member) => (

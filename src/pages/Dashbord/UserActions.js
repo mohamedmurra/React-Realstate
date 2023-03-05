@@ -14,7 +14,7 @@ function UserActions({ params, rowActivae, setrowActivae }) {
 
   useEffect(() => {
     if (rowActivae === params.id && succses) setsuccses(false)
-  }, [])
+  }, [rowActivae])
 
   const hande = async () => {
     setloadingg(true)

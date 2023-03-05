@@ -22,7 +22,7 @@ const HouseCard = ({ hou }) => {
   const getFave = async () => {
     try {
       await PrivateRoute.post(
-        `${url}/api/home/fav/${
+        `${url}api/home/fav/${
           hou.favourties.includes(user.id) ? 'remove' : 'add'
         }/`,
         {

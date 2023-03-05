@@ -13,11 +13,14 @@ const Blog = () => {
   const { dispatch } = useContext(GlobalAuth)
 
   const getBlog = async () => {
+    dispatch({ type: 'start_loading' })
     try {
       let { data } = await api.get(`api/blog/?page=${page}`)
       setItems(data?.results)
       setnumber(data?.total_pages)
+      dispatch({ type: 'end_loading' })
     } catch (error) {
+      dispatch({ type: 'end_loading' })
       dispatch({
         type: 'alert',
         payload: {

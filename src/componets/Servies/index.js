@@ -1,6 +1,6 @@
 import React from 'react'
 import { HomeSharp, AccessTimeRounded, PaidOutlined } from '@mui/icons-material'
-import { Typography, Grid, Container } from '@mui/material'
+import { Typography, Container } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { FaAngleDoubleRight } from 'react-icons/fa'
 
@@ -9,12 +9,12 @@ const OurServies = () => {
     <div className='Now-servies'>
       <Container style={{ marginTop: 20 }}>
         <Typography
-          variant='h3'
+          variant='h4'
           style={{ color: 'inhert', marginTop: 30, marginBottom: 25 }}
-          component='h1'
+          component='h5'
           textAlign='center'
         >
-          <span style={{ borderBottom: '1px solid blue' }}> خدماتنا</span>
+          <span style={{ borderBottom: '1px solid #B00020' }}> خدماتنا</span>
         </Typography>
       </Container>
       <div className='container icon-box pro-content'>
@@ -25,7 +25,7 @@ const OurServies = () => {
               بيع العقارات
             </Typography>
             <Typography
-              style={{ marginTop: 10, color: 'rgb(9, 9, 165)' }}
+              style={{ marginTop: 10, color: 'inherit' }}
               variant='subtitle2'
               component='p'
             >
@@ -58,7 +58,7 @@ const OurServies = () => {
               شراء عقار
             </Typography>
             <Typography
-              style={{ marginTop: 10, color: 'rgb(9, 9, 165)' }}
+              style={{ marginTop: 10, color: 'inherit' }}
               variant='subtitle2'
               component='p'
             >
@@ -89,7 +89,7 @@ const OurServies = () => {
               أيجار العقارات
             </Typography>
             <Typography
-              style={{ marginTop: 10, color: 'rgb(9, 9, 165)' }}
+              style={{ marginTop: 10, color: 'inherit' }}
               variant='subtitle2'
               component='p'
             >

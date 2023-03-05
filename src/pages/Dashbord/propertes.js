@@ -20,6 +20,7 @@ function Propertes({ link, setselected }) {
   const PrivateApi = usePrivateRoute()
   const {
     state: { editing },
+    dispatch,
   } = useContext(GlobalAuth)
 
   const [rooms, setrooms] = useState([])
@@ -115,8 +116,10 @@ function Propertes({ link, setselected }) {
   )
 
   const getrooms = async () => {
+    dispatch({ type: 'start_loading' })
     const { data } = await PrivateApi.get('api/home/admin/')
     setrooms(data)
+    dispatch({ type: 'end_loading' })
   }
 
   useEffect(() => {

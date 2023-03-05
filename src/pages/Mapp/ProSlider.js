@@ -1,17 +1,18 @@
-import { Card, ImageListItem, ImageListItemBar } from '@mui/material'
+import { Box, Card, ImageListItem, ImageListItemBar } from '@mui/material'
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Autoplay, Lazy } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/lazy'
-import { Box } from '@mui/system'
 import { useNavigate } from 'react-router-dom'
 import './mapsd.css'
 
-const url = process.env.REACT_APP_POINT
+const ImgApi = process.env.REACT_APP_IMAGE_URL
 
-function ProSlider(info) {
+function ProSlider({ popup }) {
+  console.log(popup)
+  const { title, description, price, images, slug } = popup
   const navig = useNavigate()
   return (
     <Card sx={{ maxWidth: 400 }}>
@@ -19,21 +20,21 @@ function ProSlider(info) {
         <ImageListItemBar
           sx={{
             background:
-              'linear-gradient(to bottom,rgba(0,0,0,0.7)0%,rgba(0,0,0,0.3)70%,rgba(0,0,0,0)100%',
+              'linear-gradient(to bottom, rgba(0,0,0,0.7)0%, rgba(0,0,0,0.3)70%, rgba(0,0,0,0)100%)',
             zIndex: 2,
           }}
-          title={`$${info.info.price}`}
+          title={'$' + price}
           position='top'
         />
         <ImageListItemBar
           sx={{ zIndex: 2 }}
-          title={info.info.title}
-          subtitle={info.info.description}
+          title={title}
+          subtitle={description.substr(0, 30) + '...'}
         />
         <Swiper
           modules={[Autoplay, Pagination, Lazy]}
           autoplay={true}
-          speed={2000}
+          speed={1000}
           lazy
           pagination={{ clickable: true }}
           style={{
@@ -42,7 +43,7 @@ function ProSlider(info) {
             '--swiper-pagination-bullet-inactive-color-opacity': 0.5,
           }}
         >
-          {info.info?.images?.map(({ image, id }) => (
+          {images?.map(({ image, id }) => (
             <SwiperSlide key={id}>
               <Box
                 sx={{
@@ -53,9 +54,9 @@ function ProSlider(info) {
                   cursor: 'pointer',
                   objectFit: 'cover',
                 }}
-                onClick={() => navig(`/detail/${info.info.slug}`)}
+                onClick={() => navig(`/detail/${slug}`)}
                 component='img'
-                src={`${url}${image}`}
+                src={`${ImgApi}${image}`}
                 alt={id}
               />
             </SwiperSlide>

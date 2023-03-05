@@ -8,13 +8,13 @@ import { grey } from '@mui/material/colors'
 import UserActions from './UserActions'
 import { GlobalAuth } from '../../componets/UserContext/Provider'
 
-const url = process.env.REACT_APP_POINT
 const ImgApi = process.env.REACT_APP_IMAGE_URL
 
 function Users({ link, setselected }) {
   const PrivateApi = usePrivateRoute()
   const {
     state: { user },
+    dispatch,
   } = useContext(GlobalAuth)
 
   const [users, setusers] = useState([])
@@ -135,8 +135,10 @@ function Users({ link, setselected }) {
   )
 
   const getusers = async () => {
+    dispatch({ type: 'start_loading' })
     const { data } = await PrivateApi.get('viewset/users/')
     setusers(data)
+    dispatch({ type: 'end_loading' })
   }
 
   useEffect(() => {

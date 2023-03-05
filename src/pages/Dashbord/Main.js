@@ -10,7 +10,7 @@ import {
   Paper,
   Typography,
 } from '@mui/material'
-import React, { useEffect, useContext, useState } from 'react'
+import React, { useEffect, useContext, } from 'react'
 import { GlobalAuth } from '../../componets/UserContext/Provider'
 import usePrivateRoute from '../../hooks.js/usePrivateRoute'
 import moment from 'moment'
@@ -25,11 +25,14 @@ function Main({ link, setselected }) {
   } = useContext(GlobalAuth)
 
   const getData = async () => {
+    dispatch({ type: 'start_loading' })
     try {
       const { data } = await PrivateApi.get('api/dashbord/')
       dispatch({ type: 'update_rooms', payload: data.rooms })
       dispatch({ type: 'update_users', payload: data.users })
+      dispatch({ type: 'end_loading' })
     } catch (error) {
+      dispatch({ type: 'end_loading' })
       dispatch({
         type: 'alert',
         payload: {
@@ -46,7 +49,7 @@ function Main({ link, setselected }) {
     getData()
     setselected(link)
   }, [])
-  const url = process.env.REACT_APP_POINT
+
   const ImgApi = process.env.REACT_APP_IMAGE_URL
 
   return (

@@ -16,10 +16,13 @@ function Faver() {
   const [num, setnum] = useState(1)
   const Private = usePrivateRoute()
   const getPe = async () => {
+    dispatch({ type: 'start_loading' })
     try {
       let { data } = await Private.get('api/home/fav/')
       setdat(data.results)
+      dispatch({ type: 'end_loading' })
     } catch (error) {
+      dispatch({ type: 'end_loading' })
       dispatch({
         type: 'alert',
         payload: {

@@ -19,7 +19,6 @@ import { Link } from 'react-router-dom'
 import UserMenu from './UserMenu'
 import { GlobalAuth } from '../UserContext/Provider'
 
-
 const Header = () => {
   const {
     state: { user },
@@ -76,12 +75,11 @@ const Header = () => {
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: 'bottom',
-                horizontal: 'left',
+                horizontal: 'right',
               }}
-              keepMounted
               transformOrigin={{
                 vertical: 'top',
-                horizontal: 'left',
+                horizontal: 'right',
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
@@ -285,7 +283,7 @@ const Header = () => {
 
           <Box sx={{ flexGrow: 0 }}>
             <IconButton
-              sx={{ mr: 4 }}
+              sx={{ mr: 1 }}
               onClick={toggleColorMode}
               color='inherit'
             >

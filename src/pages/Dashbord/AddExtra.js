@@ -50,10 +50,13 @@ function AddExtra({ link, setselected }) {
   }
 
   const getinfo = async () => {
+    dispatch({ type: 'start_loading' })
     try {
       let { data } = await Private.get(`api/home/property/${ids.slug}/`)
       setinfo(data.info)
+      dispatch({ type: 'end_loading' })
     } catch (error) {
+      dispatch({ type: 'end_loading' })
       dispatch({
         type: 'alert',
         payload: {
@@ -66,10 +69,13 @@ function AddExtra({ link, setselected }) {
   }
 
   const getpro = async () => {
+    dispatch({ type: 'start_loading' })
     try {
       const { data } = await Private.get('api/home/admin/images/')
       setpropert(data)
+      dispatch({ type: 'end_loading' })
     } catch (error) {
+      dispatch({ type: 'end_loading' })
       dispatch({
         type: 'alert',
         payload: { open: true, severity: 'error', message: error?.message },

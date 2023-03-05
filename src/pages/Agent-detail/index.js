@@ -5,17 +5,12 @@ import { Container, CardMedia, Card, Typography } from '@mui/material'
 import MarkEmailUnreadIcon from '@mui/icons-material/MarkEmailUnread'
 import PhoneForwardedIcon from '@mui/icons-material/PhoneForwarded'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
-import TwitterIcon from '@mui/icons-material/Twitter'
-import FacebookIcon from '@mui/icons-material/Facebook'
-import InstagramIcon from '@mui/icons-material/Instagram'
-import WhatsAppIcon from '@mui/icons-material/WhatsApp'
 import Slider from 'react-slick'
 import HouseCard from '../../componets/Latest-Property/card'
 import { GlobalAuth } from '../../componets/UserContext/Provider'
 const ImgApi = process.env.REACT_APP_IMAGE_URL
 
 const AgentDetail = () => {
-  const [info, setInfo] = useState([])
   const { dispatch } = useContext(GlobalAuth)
   const [agent, setAgent] = useState({})
   const pram = useParams()
@@ -77,7 +72,7 @@ const AgentDetail = () => {
     ],
   }
 
-  const pro = agent.proper ? agent.proper : []
+  
 
   return (
     <div className='container'>
@@ -114,46 +109,15 @@ const AgentDetail = () => {
               <PhoneForwardedIcon /> :
               <span style={{ marginLeft: 14 }}>{agent.phone_number}</span>
             </Typography>
-
-            <ul style={{ marginTop: 40 }} className='list-inline'>
-              <li className='list-inline-item'>
-                <a href='f' className='link-one'>
-                  <i className='bi bi-facebook' aria-hidden='true'>
-                    <FacebookIcon />
-                  </i>
-                </a>
-              </li>
-              <li className='list-inline-item'>
-                <a href='f' className='link-one'>
-                  <i className='bi bi-twitter' aria-hidden='true'>
-                    <TwitterIcon />
-                  </i>
-                </a>
-              </li>
-              <li className='list-inline-item'>
-                <a href='f' className='link-one'>
-                  <i className='bi bi-instagram' aria-hidden='true'>
-                    <InstagramIcon />
-                  </i>
-                </a>
-              </li>
-              <li className='list-inline-item'>
-                <a href='f' className='link-one'>
-                  <i className='bi bi-linkedin' aria-hidden='true'>
-                    <WhatsAppIcon />
-                  </i>
-                </a>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
       <Container style={{ marginTop: 50 }}>
         <Typography style={{ marginBottom: 10 }} variant='h4' component='h2'>
-          عقارات العميل ({pro.length})
+          عقارات العميل ({agent?.proper?.length})
         </Typography>
         <Slider {...settings}>
-          {pro?.map((hou) => (
+          {agent?.proper?.map((hou) => (
             <HouseCard key={hou.id} hou={hou} />
           ))}
         </Slider>

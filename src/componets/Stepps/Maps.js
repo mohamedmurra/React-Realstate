@@ -10,12 +10,14 @@ const Maps = () => {
   const {
     state: {
       detail: { lati, long },
+      editing,
     },
     dispatch,
   } = useContext(GlobalAuth)
   const mapref = useRef()
 
   useEffect(() => {
+    console.log(lati, long)
     if (!lati && !long) {
       fetch('https://ipapi.co/json')
         .then((res) => {
@@ -25,13 +27,26 @@ const Maps = () => {
           mapref.current.flyTo({
             center: [data.longitude, data.latitude],
           })
-          dispatch({
-            type: 'update_detail',
-            payload: { long: data.longitude, lati: data.latitude },
-          })
+          editing
+            ? dispatch({
+                type: 'updated_room',
+                payload: { long: data.longitude, lati: data.latitude },
+              })
+            : dispatch({
+                type: 'update_detail',
+                payload: { long: data.longitude, lati: data.latitude },
+              })
         })
     }
   }, [])
+
+  useEffect(() => {
+    if ((long || lati) && mapref.current) {
+      mapref.current.flyTo({
+        center: [long, lati],
+      })
+    }
+  }, [long, lati])
 
   return (
     <Box
@@ -54,18 +69,23 @@ const Maps = () => {
           initialViewState={{
             latitude: long,
             longitude: lati,
-            zoom: 12,
+            zoom: 3,
           }}
           mapboxAccessToken={MapApi}
           mapStyle='mapbox://styles/mapbox/streets-v11'
         >
           <Marker
             draggable
-            onDrag={(e) => {
-              dispatch({
-                type: 'update_detail',
-                payload: { long: e.lngLat.lng, lati: e.lngLat.lat },
-              })
+            onDragEnd={(e) => {
+              editing
+                ? dispatch({
+                    type: 'updated_room',
+                    payload: { long: e.lngLat.lng, lati: e.lngLat.lat },
+                  })
+                : dispatch({
+                    type: 'update_detail',
+                    payload: { long: e.lngLat.lng, lati: e.lngLat.lat },
+                  })
             }}
             longitude={long}
             latitude={lati}
@@ -75,12 +95,23 @@ const Maps = () => {
           <GeolocateControl
             position='top-left'
             trackUserLocation
-            onGeolocate={(e) =>
-              dispatch({
-                type: 'update_detail',
-                payload: { long: e.coords.longitude, lati: e.coords.latitude },
-              })
-            }
+            onGeolocate={(e) => {
+              editing
+                ? dispatch({
+                    type: 'updated_room',
+                    payload: {
+                      long: e.coords.longitude,
+                      lati: e.coords.latitude,
+                    },
+                  })
+                : dispatch({
+                    type: 'update_detail',
+                    payload: {
+                      long: e.coords.longitude,
+                      lati: e.coords.latitude,
+                    },
+                  })
+            }}
           />
         </Map>
       </Box>

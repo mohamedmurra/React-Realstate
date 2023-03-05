@@ -8,14 +8,16 @@ import {
 import { Box } from '@mui/system'
 import { DataGrid } from '@mui/x-data-grid'
 import moment from 'moment'
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useContext, useEffect, useMemo, useState } from 'react'
 import usePrivateRoute from '../../hooks.js/usePrivateRoute'
 import { grey } from '@mui/material/colors'
 import BlogActions from './BlogActions'
+import { GlobalAuth } from '../../componets/UserContext/Provider'
 const ImgApi = process.env.REACT_APP_IMAGE_URL
 
 function Blogs({ link, setselected }) {
   const PrivateApi = usePrivateRoute()
+  const { dispatch } = useContext(GlobalAuth)
 
   const [post, setpost] = useState([])
   const [pageSize, setpageSize] = useState(5)
@@ -73,8 +75,10 @@ function Blogs({ link, setselected }) {
   )
 
   const getblogss = async () => {
+    dispatch({ type: 'start_loading' })
     const { data } = await PrivateApi.get('api/blog/admin/')
     setpost(data.results)
+    dispatch({ type: 'end_loading' })
   }
 
   useEffect(() => {

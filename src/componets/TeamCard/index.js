@@ -25,11 +25,9 @@ const TeamCard = ({ member }) => {
           <div className='card-header-d'>
             <div className='card-title-d align-self-center'>
               <h3 className='title-d'>
-                <Link to={`/agent-detail/${id}`}>
-                  <a href='agent-single.html' className='link-two'>
-                    {first_name}
-                    <br /> {last_name}
-                  </a>
+                <Link className='link-two' to={`/agent-detail/${id}`}>
+                  {first_name}
+                  <br /> {last_name}
                 </Link>
               </h3>
             </div>
@@ -49,32 +47,32 @@ const TeamCard = ({ member }) => {
             <div className='socials-footer d-flex justify-content-center'>
               <ul className='list-inline'>
                 <li className='list-inline-item'>
-                  <a href='' className='link-one'>
+                  <Link to='https://facebook.com' href='' className='link-one'>
                     <i className='bi bi-facebook' aria-hidden='true'>
                       <FacebookIcon />
                     </i>
-                  </a>
+                  </Link>
                 </li>
                 <li className='list-inline-item'>
-                  <a href='' className='link-one'>
+                  <Link to='https://twitter.com' className='link-one'>
                     <i className='bi bi-twitter' aria-hidden='true'>
                       <TwitterIcon />
                     </i>
-                  </a>
+                  </Link>
                 </li>
                 <li className='list-inline-item'>
-                  <a href='' className='link-one'>
+                  <Link to='https://instagram.com' className='link-one'>
                     <i className='bi bi-instagram' aria-hidden='true'>
                       <InstagramIcon />
                     </i>
-                  </a>
+                  </Link>
                 </li>
                 <li className='list-inline-item'>
-                  <a href='' className='link-one'>
+                  <Link to='https://linkedin.com' className='link-one'>
                     <i className='bi bi-linkedin' aria-hidden='true'>
                       <WhatsAppIcon />
                     </i>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

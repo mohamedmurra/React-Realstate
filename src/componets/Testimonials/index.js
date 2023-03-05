@@ -4,7 +4,6 @@ import Slider from 'react-slick'
 import { Link } from 'react-router-dom'
 import { FaAngleDoubleRight } from 'react-icons/fa'
 
-const url = process.env.REACT_APP_POINT
 const ImgApi = process.env.REACT_APP_IMAGE_URL
 const Testimonial = ({ Testo, len }) => {
   const settings = {
@@ -17,19 +16,19 @@ const Testimonial = ({ Testo, len }) => {
   return (
     <div className='teste' style={{ margin: 50 }}>
       <Typography
-        variant='h3'
         style={{ color: 'inhert', marginTop: 40, marginBottom: 25 }}
-        component='h1'
+        variant='h4'
+        component='h5'
         textAlign='center'
       >
-        <span style={{ borderBottom: '1px solid blue' }}>
+        <span style={{ borderBottom: '1px solid #B00020' }}>
           {' '}
           تقيمات المستخدمين ({len.length})
         </span>
       </Typography>
       <Link style={{ textDecoration: 'none', color: 'inherit' }} to='/about-us'>
         <Typography
-          variant='h6'
+          variant='p'
           style={{ color: 'inhert', marginTop: 20 }}
           component='h5'
           textAlign='right'
@@ -63,7 +62,7 @@ const Card = ({ test }) => {
       }}
     >
       <div style={{ marginTop: 30 }}>
-        <Avatar src={`${url}${image}`} style={{ width: 120, height: 120 }} />
+        <Avatar src={`${ImgApi}${image}`} style={{ width: 120, height: 120 }} />
         <Rating readOnly style={{ marginTop: 10 }} value={review} />
       </div>
       <p style={{ marginTop: 20 }}>{message}</p>

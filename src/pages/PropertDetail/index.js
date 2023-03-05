@@ -14,15 +14,8 @@ import {
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn'
-import {
-  Avatar,
-  Button,
-  Container,
-  Paper,
-  Tooltip,
-  Typography,
-} from '@mui/material'
-import { motion } from 'framer-motion'
+import { Button, Container, Paper, Typography } from '@mui/material'
+
 import { BsGridFill } from 'react-icons/bs'
 import api from '../../utils/fetching'
 import TeamCard from '../../componets/TeamCard'
@@ -32,7 +25,6 @@ import Comment from './Comment'
 import { GlobalAuth } from '../../componets/UserContext/Provider'
 import ComentMSG from './Cform'
 import moment from 'moment'
-import ProMap from '../../componets/Map'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Autoplay, EffectCoverflow, Lazy, Zoom } from 'swiper'
 import 'swiper/css'
@@ -58,7 +50,7 @@ const PropertyDetail = () => {
   const getFave = async () => {
     try {
       await PrivateRoute.post(
-        `${url}/api/home/fav/${
+        `${url}api/home/fav/${
           house?.favourties?.includes(user.id) ? 'remove' : 'add'
         }/`,
         {
@@ -81,27 +73,26 @@ const PropertyDetail = () => {
     }
   }
 
-  const getit = async () => {
-    try {
-      dispatch({ type: 'start_loading' })
-      let { data } = await api.get(`api/home/property/${post.propertyID}/`)
-      setHouse(data)
-
-      dispatch({ type: 'end_loading' })
-    } catch (error) {
-      dispatch({ type: 'end_loading' })
-      dispatch({
-        type: 'alert',
-        payload: {
-          open: true,
-          severity: 'error',
-          message: error?.response?.statusText,
-        },
-      })
-    }
-  }
-
   useEffect(() => {
+    const getit = async () => {
+      try {
+        dispatch({ type: 'start_loading' })
+        let { data } = await api.get(`api/home/property/${post.propertyID}/`)
+        setHouse(data)
+
+        dispatch({ type: 'end_loading' })
+      } catch (error) {
+        dispatch({ type: 'end_loading' })
+        dispatch({
+          type: 'alert',
+          payload: {
+            open: true,
+            severity: 'error',
+            message: error?.response?.statusText,
+          },
+        })
+      }
+    }
     document.title = 'تفاصيل العقار'
     getit()
   }, [s_comment, fave])
@@ -240,9 +231,6 @@ const PropertyDetail = () => {
                     {house.aria}
                   </Typography>
                 </div>
-              </div>
-              <div className='map'>
-                <ProMap hou={house} />
               </div>
               <div style={{ marginTop: 30 }} className='describe'>
                 <Typography

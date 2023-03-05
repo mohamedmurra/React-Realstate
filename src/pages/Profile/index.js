@@ -57,6 +57,7 @@ function Profile() {
   }
 
   const edit = async () => {
+    dispatch({ type: 'start_loading' })
     try {
       await Private.patch(`viewset/profile/${user.id}/`, profile, {
         headers: {
@@ -77,7 +78,9 @@ function Profile() {
           payload: { image: OpenProfile.imgUri },
         })
       dispatch({ type: 'reset_profile' })
+      dispatch({ type: 'end_loading' })
     } catch (error) {
+      dispatch({ type: 'end_loading' })
       dispatch({
         type: 'alert',
         payload: {

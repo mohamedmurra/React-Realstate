@@ -26,9 +26,9 @@ const LatestProperty = ({ pro }) => {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 673,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
           initialSlide: 1,
         },
@@ -48,19 +48,19 @@ const LatestProperty = ({ pro }) => {
       <div style={{ marginTop: 50 }}>
         <Container>
           <Typography
-            variant='h3'
             style={{ color: 'inhert', marginTop: 30, marginBottom: 25 }}
-            component='h1'
+            variant='h4'
+            component='h5'
             textAlign='center'
           >
-            <span style={{ borderBottom: '1px solid blue' }}>
+            <span style={{ borderBottom: '1px solid #B00020' }}>
               {' '}
               أخر عقارات تم أضافتها
             </span>{' '}
           </Typography>
           <Link style={{ textDecoration: 'none', color: 'inherit' }} to='/main'>
             <Typography
-              variant='h6'
+              variant='p'
               style={{ color: 'inhert', marginTop: 20 }}
               component='h5'
               textAlign='right'

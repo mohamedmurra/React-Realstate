@@ -122,7 +122,7 @@ const AddBlog = ({ link, setselected }) => {
           'Content-Type': 'multipart/form-data',
         },
       })
-      dispatch({ type: 'end_loading' })
+      
       dispatch({
         type: 'alert',
         payload: {
@@ -139,6 +139,7 @@ const AddBlog = ({ link, setselected }) => {
       })
       dispatch({ type: 'end_blog_edit' })
       navigate('/admin-panel/blogs')
+      dispatch({ type: 'end_loading' })
     } catch (error) {
       dispatch({ type: 'end_loading' })
       dispatch({
