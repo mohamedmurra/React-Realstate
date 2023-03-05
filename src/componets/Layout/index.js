@@ -50,6 +50,7 @@ const Layout = () => {
   }
 
   const getdata = async () => {
+    dispatch({ type: 'start_loading' })
     try {
       let { data } = await api.get(
         `api/home/?ordering=${filter.ordering}&aria=${filter.aria}&building_type=${filter.building_type}&property_type=${filter.property_type}&num_rooms=${filter.num_rooms}&status=${filter.status}&page=${filter.page}&search=${filter.search}&min_price=${filter.min_price}&max_price=${filter.max_price}&bathrooms=${filter.bathrooms}`
@@ -81,7 +82,7 @@ const Layout = () => {
       animate={{ width: '100%' }}
       exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}
     >
-      <Container sx={{ marginTop: 2, minHeight: '79vh' }}>
+      <Container sx={{ marginTop: 2 }}>
         <Box
           sx={{
             display: 'flex',

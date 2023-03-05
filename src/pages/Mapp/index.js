@@ -36,7 +36,7 @@ const Mapp = () => {
     },
     dispatch,
   } = useContext(GlobalAuth)
-  const mapref = useRef()
+  const mapreef = useRef()
 
   const getdata = async () => {
     try {
@@ -111,10 +111,10 @@ const Mapp = () => {
   }, [])
 
   useEffect(() => {
-    if (mapref.current) {
-      setBounds(mapref.current.getMap().getBounds().toArray().flat())
+    if (mapreef.current) {
+      setBounds(mapreef.current.getMap().getBounds().toArray().flat())
     }
-  }, [mapref?.current])
+  }, [mapreef?.current])
 
   return (
     <Box
@@ -134,7 +134,7 @@ const Mapp = () => {
         }}
       >
         <Map
-          ref={mapref}
+          ref={mapreef}
           initialViewState={{
             latitude: long,
             longitude: lati,
@@ -164,7 +164,7 @@ const Mapp = () => {
                         supercluster.getClusterExpansionZoom(cluster.id),
                         20
                       )
-                      mapref.current.flyTo({
+                      mapreef.current.flyTo({
                         center: [longitude, latitude],
                         zoom,
                         speed: 1,

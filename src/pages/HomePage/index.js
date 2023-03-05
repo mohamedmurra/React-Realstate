@@ -7,6 +7,7 @@ import Testimonial from '../../componets/Testimonials'
 import TeamMember from '../../componets/Team'
 import api from '../../utils/fetching'
 import { GlobalAuth } from '../../componets/UserContext/Provider'
+import { Box } from '@mui/material'
 
 const HomePage = () => {
   const [info, setInfo] = useState([])
@@ -39,14 +40,14 @@ const HomePage = () => {
   const tess = info?.tess ? info.tess : []
 
   return (
-    <>
+    <Box sx={{width:'99%'}}>
       <Hero />
       <OurServies />
       <LatestProperty pro={pro} />
       <LatestBlog Lblog={Lblog} />
       <TeamMember Team={Team} />
       <Testimonial len={tess} Testo={Testo} />
-    </>
+    </Box>
   )
 }
 

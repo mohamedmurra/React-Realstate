@@ -42,11 +42,7 @@ const OurServies = () => {
               style={{ textDecoration: 'none', color: 'inherit' }}
               to='/about-us'
             >
-              <Typography
-                style={{ marginLeft: 40, marginTop: 15 }}
-                variant='p'
-                component='h5'
-              >
+              <Typography style={{ marginTop: 15 }} variant='p' component='h5'>
                 قرأئة المزيد...{' '}
                 <FaAngleDoubleRight style={{ fontSize: '.5rem' }} />
               </Typography>
@@ -73,11 +69,7 @@ const OurServies = () => {
               style={{ textDecoration: 'none', color: 'inherit' }}
               to='/about-us'
             >
-              <Typography
-                style={{ marginLeft: 40, marginTop: 15 }}
-                variant='p'
-                component='h5'
-              >
+              <Typography style={{ marginTop: 15 }} variant='p' component='h5'>
                 قرأئة المزيد ...{' '}
                 <FaAngleDoubleRight style={{ fontSize: '.5rem' }} />
               </Typography>
@@ -105,11 +97,7 @@ const OurServies = () => {
               style={{ textDecoration: 'none', color: 'inherit' }}
               to='/about-us'
             >
-              <Typography
-                style={{ marginLeft: 40, marginTop: 15 }}
-                variant='p'
-                component='h5'
-              >
+              <Typography style={{ marginTop: 15 }} variant='p' component='h5'>
                 قرأئة المزيد ...{' '}
                 <FaAngleDoubleRight style={{ fontSize: '.5rem' }} />
               </Typography>
