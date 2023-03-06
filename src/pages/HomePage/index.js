@@ -40,7 +40,7 @@ const HomePage = () => {
   const tess = info?.tess ? info.tess : []
 
   return (
-    <Box sx={{width:'99%'}}>
+    <Box>
       <Hero />
       <OurServies />
       <LatestProperty pro={pro} />

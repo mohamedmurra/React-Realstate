@@ -21,57 +21,56 @@ function ProSlider({ popup }) {
   const { title, description, price, images, slug } = popup
   const navig = useNavigate()
   return (
-    <Container>
-      <Card>
-        <ImageListItem sx={{ display: 'block' }}>
-          <ImageListItemBar
-            sx={{
-              background:
-                'linear-gradient(to bottom, rgba(0,0,0,0.7)0%, rgba(0,0,0,0.3)70%, rgba(0,0,0,0)100%)',
-              zIndex: 2,
-            }}
-            title={'$' + price}
-            position='top'
-          />
-          <ImageListItemBar
-            sx={{ zIndex: 2 }}
-            title={title}
-            subtitle={description.substr(0, 30) + '...'}
-          />
-          <Swiper
-            modules={[Autoplay, Pagination, Lazy]}
-            autoplay={true}
-            speed={1000}
-            lazy
-            pagination={{ clickable: true }}
-            style={{
-              '--swiper-pagination-color': 'rgba(255,255,255,0,0)',
-              '--swiper-pagination-bullet-inactive-color': '#fff',
-              '--swiper-pagination-bullet-inactive-color-opacity': 0.5,
-            }}
-          >
-            {images?.map(({ image, id }) => (
-              <SwiperSlide key={id}>
-                <Box
-                  sx={{
-                    height: 255,
-                    display: 'block',
-                    overflow: 'hidden',
-                    width: '100%',
-                    cursor: 'pointer',
-                    objectFit: 'cover',
-                  }}
-                  onClick={() => navig(`/detail/${slug}`)}
-                  component='img'
-                  src={`${ImgApi}${image}`}
-                  alt={id}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </ImageListItem>
-      </Card>
-    </Container>
+    <Card sx={{ maxWidth: 200 }}>
+      <ImageListItem sx={{ display: 'block' }}>
+        <ImageListItemBar
+          sx={{
+            background:
+              'linear-gradient(to bottom, rgba(0,0,0,0.7)0%, rgba(0,0,0,0.3)70%, rgba(0,0,0,0)100%)',
+            zIndex: 2,
+          }}
+          title={'$' + price}
+          position='top'
+        />
+        <ImageListItemBar
+          sx={{ zIndex: 2 }}
+          title={title}
+          subtitle={description.substr(0, 30) + '...'}
+        />
+        <Swiper
+          modules={[Autoplay, Pagination, Lazy]}
+          autoplay={true}
+          speed={1000}
+          lazy
+          pagination={{ clickable: true }}
+          style={{
+            '--swiper-pagination-color': 'rgba(255,255,255,0,0)',
+            '--swiper-pagination-bullet-inactive-color': '#fff',
+            '--swiper-pagination-bullet-inactive-color-opacity': 0.5,
+          }}
+        >
+          {images?.map(({ image, id }) => (
+            <SwiperSlide key={id}>
+              <Box
+                sx={{
+                  height: 255,
+                  display: 'block',
+                  overflow: 'hidden',
+                  width: '100%',
+                  cursor: 'pointer',
+                  objectFit: 'cover',
+                }}
+                onClick={() => navig(`/detail/${slug}`)}
+                component='img'
+                src={`${ImgApi}${image}`}
+                className='img-fluid'
+                alt={id}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </ImageListItem>
+    </Card>
   )
 }
 

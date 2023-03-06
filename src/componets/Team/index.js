@@ -1,6 +1,6 @@
 import React from 'react'
 import Slider from 'react-slick'
-import { Typography } from '@mui/material'
+import { Container, Typography } from '@mui/material'
 import TeamCard from './card'
 
 const TeamMember = ({ Team }) => {
@@ -42,7 +42,7 @@ const TeamMember = ({ Team }) => {
   }
 
   return (
-    <div className='container mt-5 carousel '>
+    <Container>
       <Typography
         style={{ color: 'inhert', marginTop: 30, marginBottom: 25 }}
         variant='h4'
@@ -56,7 +56,7 @@ const TeamMember = ({ Team }) => {
           <TeamCard key={member.id} member={member} />
         ))}
       </Slider>
-    </div>
+    </Container>
   )
 }
 

@@ -13,7 +13,7 @@ const TeamCard = ({ member }) => {
   const { image, first_name, last_name, email, phone_number, id, describe } =
     member ? member : {}
   return (
-    <Paper style={{ margin: 10 }} elevation={5}>
+    <Paper style={{ margin: 4 }} elevation={5}>
       <div className='card-box-d'>
         <div className='card-img-d'>
           {image ? (
