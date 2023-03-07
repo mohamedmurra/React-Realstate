@@ -20,7 +20,6 @@ function AddExtra({ link, setselected }) {
   const [ids, setids] = useState(null)
   const [propert, setpropert] = useState([])
   const [text, settext] = useState('')
-  const [id, setid] = useState('')
   const [info, setinfo] = useState([])
   const Private = usePrivateRoute()
   const { dispatch } = useContext(GlobalAuth)
@@ -100,7 +99,7 @@ function AddExtra({ link, setselected }) {
     }
   }
   return (
-    <Container sx={{ minHeight: '73vh' }}>
+    <Container >
       <Typography
         variant='h5'
         component='h5'

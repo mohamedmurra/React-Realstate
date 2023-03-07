@@ -90,7 +90,7 @@ const About = () => {
 
   return (
     <>
-      <div style={{ minHeight: '79vh' }} className='container'>
+      <div  className='container'>
         <div
           style={{ margin: 20 }}
           className='row justify-content-center about-info'

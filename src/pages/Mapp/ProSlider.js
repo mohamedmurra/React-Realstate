@@ -21,7 +21,7 @@ function ProSlider({ popup }) {
   const { title, description, price, images, slug } = popup
   const navig = useNavigate()
   return (
-    <Card sx={{ maxWidth: 200 }}>
+    <Card sx={{ maxWidth: 400 }}>
       <ImageListItem sx={{ display: 'block' }}>
         <ImageListItemBar
           sx={{
@@ -51,17 +51,8 @@ function ProSlider({ popup }) {
         >
           {images?.map(({ image, id }) => (
             <SwiperSlide key={id}>
-              <Box
-                sx={{
-                  height: 255,
-                  display: 'block',
-                  overflow: 'hidden',
-                  width: '100%',
-                  cursor: 'pointer',
-                  objectFit: 'cover',
-                }}
+              <img
                 onClick={() => navig(`/detail/${slug}`)}
-                component='img'
                 src={`${ImgApi}${image}`}
                 className='img-fluid'
                 alt={id}

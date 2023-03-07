@@ -130,7 +130,7 @@ function Propertes({ link, setselected }) {
   }, [])
 
   return (
-    <Container sx={{ minHeight: '73vh' }}>
+    <Container >
       <Box sx={{ height: 400, width: '100%' }}>
         <Typography
           variant='h3'

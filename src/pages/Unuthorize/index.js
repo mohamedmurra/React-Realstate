@@ -18,7 +18,7 @@ const Unuthorize = () => {
   return (
     <Container>
       {user ? (
-        <Navigate to='/admin-panel' />
+        <Navigate to='/' />
       ) : (
         <Box
           sx={{

@@ -20,7 +20,6 @@ import { useDropzone } from 'react-dropzone'
 import usePrivateRoute from '../../hooks.js/usePrivateRoute'
 import { Cancel, Send } from '@mui/icons-material'
 
-
 const ImgApi = process.env.REACT_APP_IMAGE_URL
 
 const AddImages = ({ link, setselected }) => {
@@ -157,7 +156,7 @@ const AddImages = ({ link, setselected }) => {
   }, [ids])
 
   return (
-    <Container sx={{ minHeight: '73vh' }}>
+    <Container>
       <Typography
         variant='h5'
         component='h5'

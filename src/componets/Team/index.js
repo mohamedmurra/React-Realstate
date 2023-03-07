@@ -7,12 +7,11 @@ const TeamMember = ({ Team }) => {
   const settings = {
     dots: true,
     infinite: true,
-    adaptiveHeight: true,
-    speed: 1500,
     autoplay: true,
+    adaptiveHeight: true,
+    speed: 1000,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplaySpeed: 1000,
     responsive: [
       {
         breakpoint: 1024,

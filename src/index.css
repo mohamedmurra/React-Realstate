@@ -2,6 +2,9 @@
   padding:0;
   margin: 0;
 }
+.body{
+  min-height:100vh;
+}
 .map{
   margin-top: 5px;
 }
@@ -313,6 +316,11 @@ text-align: center;
 .agent-info-box .socials-footer li {
   margin-right: 1.5rem;
 }
+.footer {
+margin:auto;
+  background-color: var(--color-article4-background);
+  padding: 10px 0;
+  overflow: hidden; }
 
 
 

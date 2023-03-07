@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { Grid, Container, Paper } from '@mui/material'
+import { Grid, Container, Pagination } from '@mui/material'
 import TeamCard from '../../componets/TeamCard'
 import api from '../../utils/fetching'
-import { motion } from 'framer-motion'
 import { GlobalAuth } from '../../componets/UserContext/Provider'
-import Paginate from '../../componets/Pagintion'
 
 const Agents = () => {
   const [prope, setprope] = useState([])
@@ -12,9 +10,9 @@ const Agents = () => {
   const [number, setnumber] = useState(1)
   const { dispatch } = useContext(GlobalAuth)
   const getdata = async () => {
+    dispatch({ type: 'start_loading' })
     try {
       let { data } = await api.get(`api/TeamMember/?page=${page}`)
-      dispatch({ type: 'start_loading' })
       setprope(data?.results)
       setnumber(data?.total_pages)
       dispatch({ type: 'end_loading' })
@@ -44,25 +42,50 @@ const Agents = () => {
   useEffect(() => {
     document.title = ' العملاء'
     getdata()
-  }, [])
+  }, [page])
+
+  const handelchange = (Page) => {
+    setpage(Page)
+    window.scroll(0, 0)
+  }
 
   return (
-    <motion.div
-      initial={{ width: 0 }}
-      animate={{ width: '100%' }}
-      exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}
-    >
-      <Container sx={{ marginTop: 5, minHeight: '79vh' }}>
-        <Grid container spacing={5}>
-          {prope.map((hou) => (
-            <Grid key={hou.id} item xs={12} md={6} lg={4}>
-              <TeamCard member={hou} />
-            </Grid>
-          ))}
-        </Grid>
-        <Paginate Page={number} setPage={setpage} />
-      </Container>
-    </motion.div>
+    <Container sx={{ marginTop: 5 }}>
+      <Grid container spacing={5}>
+        {prope.map((hou) => (
+          <Grid key={hou.id} item xs={12} md={6} lg={4}>
+            <TeamCard member={hou} />
+          </Grid>
+        ))}
+      </Grid>
+      <div
+        style={{
+          position: 'static',
+          bottom: 0,
+          zIndex: 200,
+          padding: '10px 80px',
+          color: 'white',
+          width: '100%',
+        }}
+      >
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            color: 'white',
+          }}
+        >
+          <Pagination
+            hidePrevButton
+            hideNextButton
+            onChange={(e) => handelchange(e.target.textContent)}
+            count={number}
+            color='secondary'
+          />
+        </div>
+      </div>
+    </Container>
   )
 }
 

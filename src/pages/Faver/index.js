@@ -38,7 +38,7 @@ function Faver() {
     getPe()
   }, [fave, Page])
   return (
-    <Container sx={{ marginTop: 5, height: '79vh' }}>
+    <Container sx={{ marginTop: 5, }}>
       <Grid container spacing={3}>
         {dat?.map((hou) => (
           <Grid key={hou.id} item xs={12} md={6} lg={4}>

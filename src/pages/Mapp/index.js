@@ -53,7 +53,6 @@ const Mapp = () => {
           },
         })
       }
-      dispatch({ type: 'end_loading' })
       dispatch({
         type: 'alert',
         payload: {
@@ -122,13 +121,12 @@ const Mapp = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '81vh',
       }}
     >
       <Box
         sx={{
           width: '95vw',
-          height: '75.2vh',
+          height: '100vh',
           position: 'relative',
           margin: 1,
         }}
@@ -136,8 +134,8 @@ const Mapp = () => {
         <Map
           ref={mapreef}
           initialViewState={{
-            latitude: long,
-            longitude: lati,
+            latitude: 30.2176,
+            longitude: 12.8628,
           }}
           mapboxAccessToken={MapApi}
           mapStyle='mapbox://styles/mapbox/streets-v11'
@@ -208,8 +206,8 @@ const Mapp = () => {
           />
           {popup && (
             <Popup
-              latitude={popup.lng}
-              longitude={popup.lat}
+              latitude={popup.lat}
+              longitude={popup.lng}
               maxWidth='auto'
               closeOnClick={false}
               focusAfterOpen={false}

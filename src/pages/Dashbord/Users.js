@@ -148,7 +148,7 @@ function Users({ link, setselected }) {
   }, [])
 
   return (
-    <Container sx={{ minHeight: '80vh' }}>
+    <Container >
       <Box sx={{ height: 450, width: '100%' }}>
         <Typography
           variant='h3'

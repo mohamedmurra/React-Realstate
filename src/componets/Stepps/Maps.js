@@ -67,8 +67,8 @@ const Maps = () => {
         <Map
           ref={mapref}
           initialViewState={{
-            latitude: long,
-            longitude: lati,
+            latitude: lati,
+            longitude: long,
             zoom: 3,
           }}
           mapboxAccessToken={MapApi}
@@ -87,8 +87,8 @@ const Maps = () => {
                     payload: { long: e.lngLat.lng, lati: e.lngLat.lat },
                   })
             }}
-            longitude={long}
-            latitude={lati}
+            longitude={long ? long : 30.214}
+            latitude={lati ? lati : 12.242}
           />
 
           <NavigationControl position='bottom-right' />

@@ -8,7 +8,6 @@ import {
   IconButton,
   TextField,
   DialogActions,
-  Typography,
 } from '@mui/material'
 import { GlobalAuth } from '../../componets/UserContext/Provider'
 import { Close, Send } from '@mui/icons-material'

@@ -104,6 +104,7 @@ const HouseCard = ({ hou }) => {
             justifyContent='space-between'
             w='300px'
             color='blue.400'
+            display='flex'
           >
             {hou.num_rooms} Room <MdOutlineBed />| {hou.bathrooms} Bathroom
             <FaBath /> | {millify(hou.space)} sqft <BsGridFill />

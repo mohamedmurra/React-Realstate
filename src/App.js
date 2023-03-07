@@ -21,8 +21,10 @@ export default function App() {
           <CustomeAlert />
           <Router>
             <Paper>
+              <div className='body'>
               <Header />
-              <Pathes />
+                <Pathes />
+              </div>
               <Footer />
             </Paper>
           </Router>
