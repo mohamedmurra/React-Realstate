@@ -232,7 +232,7 @@ const PropertyDetail = () => {
                   </Typography>
                 </div>
               </div>
-              <div style={{ marginTop: 30 }} className='describe'>
+              <div style={{ marginTop: 30, gap: 1 }} className='describe'>
                 <Typography
                   style={{
                     marginBottom: 30,

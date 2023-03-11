@@ -17,7 +17,6 @@ const Maps = () => {
   const mapref = useRef()
 
   useEffect(() => {
-    console.log(lati, long)
     if (!lati && !long) {
       fetch('https://ipapi.co/json')
         .then((res) => {

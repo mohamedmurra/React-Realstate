@@ -38,9 +38,9 @@ const AgentDetail = () => {
   const settings = {
     dots: true,
     infinite: true,
-    adaptiveHeight: true,
     speed: 1000,
     autoplay: true,
+    adaptiveHeight: true,
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplaySpeed: 2000,
@@ -71,8 +71,6 @@ const AgentDetail = () => {
       },
     ],
   }
-
-  
 
   return (
     <div className='container'>
