@@ -6,7 +6,6 @@ import FacebookIcon from '@mui/icons-material/Facebook'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import WhatsAppIcon from '@mui/icons-material/WhatsApp'
 import agent from '../../assets/agent-1.png'
-
 const ImgApi = process.env.REACT_APP_IMAGE_URL
 
 const TeamCard = ({ member }) => {

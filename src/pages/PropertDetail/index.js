@@ -15,7 +15,6 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn'
 import { Button, Container, Paper, Typography } from '@mui/material'
-
 import { BsGridFill } from 'react-icons/bs'
 import api from '../../utils/fetching'
 import TeamCard from '../../componets/TeamCard'

@@ -13,40 +13,33 @@ const HomePage = () => {
   const [info, setInfo] = useState([])
   const { dispatch } = useContext(GlobalAuth)
 
-  const getit = async () => {
-    try {
-      dispatch({ type: 'start_loading' })
-      let { data } = await api.get(`api/homepage/`)
-      setInfo(data)
-      dispatch({ type: 'end_loading' })
-    } catch (error) {
-      
-      dispatch({ type: 'end_loading' })
-      dispatch({
-        type: 'alert',
-        payload: { open: true, severity: 'error', message: error?.message },
-      })
-    }
-  }
-
   useEffect(() => {
     document.title = 'الصفحة الرئيسية'
+    const getit = async () => {
+      try {
+        dispatch({ type: 'start_loading' })
+        let { data } = await api.get(`api/homepage/`)
+        setInfo(data)
+        dispatch({ type: 'end_loading' })
+      } catch (error) {
+        dispatch({ type: 'end_loading' })
+        dispatch({
+          type: 'alert',
+          payload: { open: true, severity: 'error', message: error?.message },
+        })
+      }
+    }
     getit()
   }, [])
-  const pro = info?.latest_property ? info.latest_property : []
-  const Lblog = info?.latest_blog ? info.latest_blog : []
-  const Testo = info?.Testomany ? info.Testomany : []
-  const Team = info?.Team ? info.Team : []
-  const tess = info?.tess ? info.tess : []
 
   return (
     <Box>
       <Hero />
       <OurServies />
-      <LatestProperty pro={pro} />
-      <LatestBlog Lblog={Lblog} />
-      <TeamMember Team={Team} />
-      <Testimonial len={tess} Testo={Testo} />
+      <LatestProperty pro={info?.latest_property} />
+      <LatestBlog Lblog={info?.latest_blog} />
+      <TeamMember Team={info?.Team} />
+      <Testimonial len={info?.tess} Testo={info?.Testomany} />
     </Box>
   )
 }

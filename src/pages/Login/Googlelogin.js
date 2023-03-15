@@ -9,7 +9,6 @@ import jwt_decode from 'jwt-decode'
 const Googlelog = () => {
   const {
     dispatch,
-    state: { user },
   } = useContext(GlobalAuth)
   useEffect(() => {
     function start() {

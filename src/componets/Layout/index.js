@@ -33,53 +33,53 @@ const Layout = () => {
     window.scroll(0, 0)
   }
 
-  const getoption = async () => {
-    try {
-      let { data } = await api.get('api/home/searsh-filter/')
-      setoption(data)
-    } catch (error) {
-      if (!error.response) {
+  useEffect(() => {
+    document.title = 'العقارات'
+    const getdata = async () => {
+      try {
+        let { data } = await api.get(
+          `api/home/?ordering=${filter.ordering}&aria=${filter.aria}&building_type=${filter.building_type}&property_type=${filter.property_type}&num_rooms=${filter.num_rooms}&status=${filter.status}&page=${filter.page}&search=${filter.search}&min_price=${filter.min_price}&max_price=${filter.max_price}&bathrooms=${filter.bathrooms}`
+        )
+
+        setprope(data?.results)
+        setfilterd(data?.results)
+        setnum(data?.total_pages)
+        setshow(true)
+      } catch (error) {
+        dispatch({
+          type: 'alert',
+          payload: { open: true, severity: 'error', message: error.message },
+        })
+      }
+    }
+    getdata()
+  }, [])
+  useEffect(() => {
+    const getoption = async () => {
+      try {
+        let { data } = await api.get('api/home/searsh-filter/')
+        setoption(data)
+      } catch (error) {
+        if (!error.response) {
+          dispatch({
+            type: 'alert',
+            payload: {
+              open: true,
+              severity: 'error',
+              message: 'No Server Response',
+            },
+          })
+        }
         dispatch({
           type: 'alert',
           payload: {
             open: true,
             severity: 'error',
-            message: 'No Server Response',
+            message: error.response.statusText,
           },
         })
       }
-      dispatch({
-        type: 'alert',
-        payload: {
-          open: true,
-          severity: 'error',
-          message: error.response.statusText,
-        },
-      })
     }
-  }
-
-  const getdata = async () => {
-    try {
-      let { data } = await api.get(
-        `api/home/?ordering=${filter.ordering}&aria=${filter.aria}&building_type=${filter.building_type}&property_type=${filter.property_type}&num_rooms=${filter.num_rooms}&status=${filter.status}&page=${filter.page}&search=${filter.search}&min_price=${filter.min_price}&max_price=${filter.max_price}&bathrooms=${filter.bathrooms}`
-      )
-
-      setprope(data?.results)
-      setfilterd(data?.results)
-      setnum(data?.total_pages)
-      setshow(true)
-    } catch (error) {
-      dispatch({
-        type: 'alert',
-        payload: { open: true, severity: 'error', message: error.message },
-      })
-    }
-  }
-
-  useEffect(() => {
-    document.title = 'العقارات'
-    getdata()
     getoption()
   }, [filter, fave])
 

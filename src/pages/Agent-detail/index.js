@@ -14,24 +14,25 @@ const AgentDetail = () => {
   const { dispatch } = useContext(GlobalAuth)
   const [agent, setAgent] = useState({})
   const pram = useParams()
-  const getagent = async () => {
-    dispatch({ type: 'start_loading' })
-    try {
-      let { data } = await api.get(
-        `api/TeamMember/agent-detail/${pram.agentId}/`
-      )
-      setAgent(data)
-      dispatch({ type: 'end_loading' })
-    } catch (error) {
-      dispatch({ type: 'end_loading' })
-      dispatch({
-        type: 'alert',
-        payload: { open: true, severity: 'error', message: error?.message },
-      })
-    }
-  }
+
   useEffect(() => {
     document.title = 'تفاصيل العميل'
+    const getagent = async () => {
+      dispatch({ type: 'start_loading' })
+      try {
+        let { data } = await api.get(
+          `api/TeamMember/agent-detail/${pram.agentId}/`
+        )
+        setAgent(data)
+        dispatch({ type: 'end_loading' })
+      } catch (error) {
+        dispatch({ type: 'end_loading' })
+        dispatch({
+          type: 'alert',
+          payload: { open: true, severity: 'error', message: error?.message },
+        })
+      }
+    }
     getagent()
   }, [])
 
@@ -110,7 +111,7 @@ const AgentDetail = () => {
           </div>
         </div>
       </div>
-      <Container style={{ marginTop: 50 }}>
+      <Container style={{ marginTop: 20 }}>
         <Typography style={{ marginBottom: 10 }} variant='h4' component='h2'>
           عقارات العميل ({agent?.proper?.length})
         </Typography>

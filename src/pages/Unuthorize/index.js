@@ -3,7 +3,6 @@ import { Container } from '@mui/system'
 import React, { useContext } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
 import { GlobalAuth } from '../../componets/UserContext/Provider'
-import { HasPerm } from '../Dashbord/Perms'
 
 const Unuthorize = () => {
   const {

@@ -51,7 +51,7 @@ const TeamMember = ({ Team }) => {
         <span style={{ borderBottom: '1px solid #B00020' }}>أدراة الموقع </span>{' '}
       </Typography>
       <Slider {...settings}>
-        {Team.map((member) => (
+        {Team?.map((member) => (
           <TeamCard key={member.id} member={member} />
         ))}
       </Slider>

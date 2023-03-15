@@ -126,7 +126,7 @@ const Mapp = () => {
       <Box
         sx={{
           width: '95vw',
-          height: '100vh',
+          height: '80vh',
           position: 'relative',
           margin: 1,
         }}

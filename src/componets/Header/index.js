@@ -49,7 +49,7 @@ const Header = () => {
               sx={{ paddingRight: 0.5 }}
               color={'inherit'}
             >
-              <Link style={{ textDecoration: 'none', color: 'gold' }} to='/'>
+              <Link style={{ textDecoration: 'none', color: 'inherit' }} to='/'>
                 Murra
               </Link>
             </Typography>
@@ -182,7 +182,7 @@ const Header = () => {
               sx={{ paddingRight: 0.5 }}
               color={'inherit'}
             >
-              <Link style={{ textDecoration: 'none', color: 'gold' }} to='/'>
+              <Link style={{ textDecoration: 'none', color: 'inherit' }} to='/'>
                 Murra
               </Link>
             </Typography>

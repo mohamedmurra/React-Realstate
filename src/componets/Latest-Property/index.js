@@ -70,7 +70,7 @@ const LatestProperty = ({ pro }) => {
           </Link>
 
           <Slider {...settings}>
-            {pro.map((hou) => (
+            {pro?.map((hou) => (
               <HouseCard key={hou.id} hou={hou} />
             ))}
           </Slider>

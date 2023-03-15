@@ -69,7 +69,7 @@ const LatestBlog = ({ Lblog }) => {
         </Link>
 
         <Slider {...settings}>
-          {Lblog.map((post) => (
+          {Lblog?.map((post) => (
             <BlogCard key={post.id} post={post} />
           ))}
         </Slider>

@@ -23,7 +23,7 @@ const Testimonial = ({ Testo, len }) => {
       >
         <span style={{ borderBottom: '1px solid #B00020' }}>
           {' '}
-          تقيمات المستخدمين ({len.length})
+          تقيمات المستخدمين ({len?.length})
         </span>
       </Typography>
       <Link style={{ textDecoration: 'none', color: 'inherit' }} to='/about-us'>
@@ -40,7 +40,7 @@ const Testimonial = ({ Testo, len }) => {
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <div style={{ width: '50%' }}>
           <Slider {...settings}>
-            {Testo.map((test, url) => (
+            {Testo?.map((test, url) => (
               <Card key={test.id} test={test} />
             ))}
           </Slider>

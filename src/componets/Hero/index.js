@@ -16,13 +16,13 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
   },
   Tilte: {
-    color: 'rgb(174, 8, 102)',
+    color: 'black',
     fontFamily: 'Nunito',
-    fontSize: '3rem',
+    fontSize: { lg: '3rem', md: '3rem', sm: '2rem' },
   },
   ColorText: {
     color: 'rgb(198, 123, 10)',
-    fontSize: '2rem',
+    fontSize: '1.8rem',
   },
 }))
 export default function Hero() {
