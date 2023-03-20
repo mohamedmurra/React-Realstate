@@ -6,9 +6,11 @@ import FacebookIcon from '@mui/icons-material/Facebook'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import WhatsAppIcon from '@mui/icons-material/WhatsApp'
 import agent from '../../assets/agent-1.png'
+import { useTranslation } from 'react-i18next'
 const ImgApi = process.env.REACT_APP_IMAGE_URL
 
 const TeamCard = ({ member }) => {
+  const { t } = useTranslation()
   const { image, first_name, last_name, email, phone_number, id, describe } =
     member ? member : {}
   return (
@@ -36,10 +38,10 @@ const TeamCard = ({ member }) => {
             <p className='content-d color-text-a'>{describe ? describe : ''}</p>
             <div className='info-agents color-a'>
               <p>
-                <strong>Phone: </strong> {phone_number}
+                <strong>{t('login-phone')}: </strong> {phone_number}
               </p>
               <p>
-                <strong>Email: </strong> {email}
+                <strong>{t('login-email')}: </strong> {email}
               </p>
             </div>
           </div>

@@ -3,8 +3,10 @@ import { HomeSharp, AccessTimeRounded, PaidOutlined } from '@mui/icons-material'
 import { Typography, Container } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { FaAngleDoubleRight } from 'react-icons/fa'
+import { useTranslation } from 'react-i18next'
 
 const OurServies = () => {
+  const { t } = useTranslation()
   return (
     <div className='Now-servies'>
       <Container style={{ marginTop: 20 }}>
@@ -14,7 +16,10 @@ const OurServies = () => {
           component='h5'
           textAlign='center'
         >
-          <span style={{ borderBottom: '1px solid #B00020' }}> خدماتنا</span>
+          <span style={{ borderBottom: '1px solid #B00020' }}>
+            {' '}
+            {t('services')}
+          </span>
         </Typography>
       </Container>
       <div className='container icon-box pro-content'>
@@ -22,20 +27,20 @@ const OurServies = () => {
           <div className='col-12 col-md-4 text-center'>
             <HomeSharp style={{ fontSize: '5rem' }} />
             <Typography style={{ marginLeft: 20 }} variant='h4' component='h5'>
-              بيع العقارات
+              {t('s-sel')}
             </Typography>
             <Typography
               style={{ marginTop: 10, color: 'inherit' }}
               variant='subtitle2'
               component='p'
             >
-              سجل فى الموقع أو تواصل مع الأدمن
+              {t('s-sel-1')}
               <br />
-              لى أضافة عقارارك على الموقع وادارته وعرضه
+              {t('s-sel-2')}
               <br />{' '}
               <span style={{ marginRight: 20, textAlign: 'center' }}>
                 {' '}
-                لمجموعة متنوعة من العملاء{' '}
+                {t('s-sel-3')}
               </span>{' '}
             </Typography>
             <Link
@@ -43,26 +48,25 @@ const OurServies = () => {
               to='/about-us'
             >
               <Typography style={{ marginTop: 15 }} variant='p' component='h5'>
-                قرأئة المزيد...{' '}
-                <FaAngleDoubleRight style={{ fontSize: '.5rem' }} />
+                {t('s-m')} <FaAngleDoubleRight style={{ fontSize: '.5rem' }} />
               </Typography>
             </Link>
           </div>
           <div className='col-12 col-md-4 text-center'>
             <PaidOutlined style={{ fontSize: '5rem' }} />
             <Typography style={{ marginLeft: 20 }} variant='h4' component='h5'>
-              شراء عقار
+              {t('s-buy')}
             </Typography>
             <Typography
               style={{ marginTop: 10, color: 'inherit' }}
               variant='subtitle2'
               component='p'
             >
-              نعرض لك مجموعة متنوعة من العقارات <br />
-              لكي تختار بينها بمختلف الأسعار من أجل أيجاد
+              {t('s-buy-1')}
+              <br /> {t('s-buy-2')}
               <br />{' '}
               <span style={{ marginRight: 20, textAlign: 'center' }}>
-                منزل الأحلام
+                {t('s-buy-3')}
               </span>{' '}
             </Typography>
             <Link
@@ -70,7 +74,7 @@ const OurServies = () => {
               to='/about-us'
             >
               <Typography style={{ marginTop: 15 }} variant='p' component='h5'>
-                قرأئة المزيد ...{' '}
+                {t('s-m')}
                 <FaAngleDoubleRight style={{ fontSize: '.5rem' }} />
               </Typography>
             </Link>
@@ -78,19 +82,19 @@ const OurServies = () => {
           <div className='col-12 col-md-4 text-center'>
             <AccessTimeRounded style={{ fontSize: '5rem' }} />
             <Typography style={{ marginLeft: 20 }} variant='h4' component='h5'>
-              أيجار العقارات
+              {t('s-ren')}
             </Typography>
             <Typography
               style={{ marginTop: 10, color: 'inherit' }}
               variant='subtitle2'
               component='p'
             >
-              نعرض لك مجموعة متنوعة من العقارات
+              {t('s-ren-1')}
               <br />
-              نساعدك فى الأختيار والصيانة وابرام العقد و
+              {t('s-ren-2')}
               <br />{' '}
               <span style={{ marginRight: 20, textAlign: 'center' }}>
-                تحديد الأسعار
+                {t('s-ren-3')}
               </span>{' '}
             </Typography>
             <Link
@@ -98,7 +102,7 @@ const OurServies = () => {
               to='/about-us'
             >
               <Typography style={{ marginTop: 15 }} variant='p' component='h5'>
-                قرأئة المزيد ...{' '}
+                {t('s-m')}
                 <FaAngleDoubleRight style={{ fontSize: '.5rem' }} />
               </Typography>
             </Link>

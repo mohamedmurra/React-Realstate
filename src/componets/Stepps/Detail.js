@@ -14,8 +14,10 @@ import {
 } from '@mui/material'
 import { GlobalAuth } from '../UserContext/Provider'
 import CustomeText from '../CustomeText'
+import { useTranslation } from 'react-i18next'
 
 const Detail = () => {
+  const { t } = useTranslation()
   const {
     state: { detail, editing },
     dispatch,
@@ -52,7 +54,7 @@ const Detail = () => {
             sx={{ width: '7ch !important' }}
             variant='standard'
             name='num_rooms'
-            label='Rooms'
+            label={t('side-room')}
             required
             value={detail.num_rooms}
             onChange={editing ? handeledit : handelPrice}
@@ -69,7 +71,7 @@ const Detail = () => {
             sx={{ width: '9ch !important' }}
             variant='standard'
             name='bathrooms'
-            label='BathRoom'
+            label={t('side-bath')}
             required
             value={detail.bathrooms}
             onChange={editing ? handeledit : handelPrice}
@@ -86,7 +88,7 @@ const Detail = () => {
             sx={{ width: '14ch !important' }}
             variant='standard'
             name='price'
-            label='Price'
+            label={t('pro-price')}
             required
             value={detail.price}
             onChange={editing ? handeledit : handelPrice}
@@ -101,7 +103,7 @@ const Detail = () => {
             sx={{ width: '10ch !important' }}
             variant='standard'
             name='space'
-            label='Space'
+            label={t('pro-space')}
             required
             value={detail.space}
             onChange={editing ? handeledit : handelPrice}
@@ -118,13 +120,17 @@ const Detail = () => {
       </FormControl>
       <CustomeText
         minLen={5}
-        minProp={{ name: 'title', label: 'Title', value: detail.title }}
+        minProp={{
+          name: 'title',
+          label: t('steps-title'),
+          value: detail.title,
+        }}
       />
       <CustomeText
         minLen={10}
         minProp={{
           name: 'description',
-          label: 'Description',
+          label: t('pro-desc'),
           value: detail.description,
         }}
         option={{ rows: 5, multiline: true }}

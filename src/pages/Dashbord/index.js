@@ -44,6 +44,7 @@ import Propertes from './propertes'
 import Blogs from './blogs'
 import { HasPerm } from './Perms'
 import AddExtra from './AddExtra'
+import { useTranslation } from 'react-i18next'
 const ImgApi = process.env.REACT_APP_IMAGE_URL
 
 const drawerWidth = 240
@@ -114,6 +115,7 @@ const Drawer = styled(MuiDrawer, {
 }))
 
 export default function MiniDrawer() {
+  const { t } = useTranslation()
   const { mode, toggleColorMode } = React.useContext(ColorModeContex)
   const {
     state: { user },
@@ -137,49 +139,49 @@ export default function MiniDrawer() {
       HasPerm(user)
         ? [
             {
-              title: 'main',
+              title: t('dash-main'),
               icon: <Dashboard />,
               link: '',
               component: <Main {...{ setselected, link: '' }} />,
             },
             {
-              title: 'Add Property',
+              title: t('dash-ad-pro'),
               icon: <BedRounded />,
               link: 'addproperty',
               component: <Stepss {...{ setselected, link: 'addproperty' }} />,
             },
             {
-              title: 'Add Blog ',
+              title: t('dash-ad-blog'),
               icon: <PostAdd />,
               link: 'addblog',
               component: <AddBlog {...{ setselected, link: 'addblog' }} />,
             },
             {
-              title: 'Images',
+              title: t('dash-img'),
               icon: <Image />,
               link: 'images',
               component: <AddImages {...{ setselected, link: 'images' }} />,
             },
             {
-              title: 'extra',
+              title: t('dash-ex'),
               icon: <AddBox />,
               link: 'extra',
               component: <AddExtra {...{ setselected, link: 'extra' }} />,
             },
             {
-              title: 'users',
+              title: t('dash-users'),
               icon: <PeopleAlt />,
               link: 'users',
               component: <Users {...{ setselected, link: 'users' }} />,
             },
             {
-              title: ' update Property',
+              title: t('dash-up-pro'),
               icon: <Edit />,
               link: 'propertes',
               component: <Propertes {...{ setselected, link: 'propertes' }} />,
             },
             {
-              title: ' update Blog',
+              title: t('dash-up-blog'),
               icon: <Book />,
               link: 'blogs',
               component: <Blogs {...{ setselected, link: 'blogs' }} />,
@@ -187,25 +189,25 @@ export default function MiniDrawer() {
           ]
         : [
             {
-              title: 'Add Property',
+              title: t('dash-ad-pro'),
               icon: <BedRounded />,
               link: 'addproperty',
               component: <Stepss {...{ setselected, link: 'addproperty' }} />,
             },
             {
-              title: ' update Property',
+              title: t('dash-up-pro'),
               icon: <House />,
               link: 'propertes',
               component: <Propertes {...{ setselected, link: 'propertes' }} />,
             },
             {
-              title: 'Images',
+              title: t('dash-img'),
               icon: <Image />,
               link: 'images',
               component: <AddImages {...{ setselected, link: 'images' }} />,
             },
             {
-              title: 'extra',
+              title: t('dash-ex'),
               icon: <AddBox />,
               link: 'extra',
               component: <AddExtra {...{ setselected, link: 'extra' }} />,

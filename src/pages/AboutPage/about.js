@@ -5,8 +5,10 @@ import AccordionSummary from '@mui/material/AccordionSummary'
 import Typography from '@mui/material/Typography'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { Box } from '@mui/system'
+import { useTranslation } from 'react-i18next'
 
 export default function ControlledAccordions() {
+  const { t } = useTranslation()
   const [expanded, setExpanded] = React.useState(false)
 
   const handleChange = (panel) => (event, isExpanded) => {
@@ -21,7 +23,7 @@ export default function ControlledAccordions() {
         variant='h6'
         textAlign='center'
       >
-        الخدمات التي نقدمها
+        {t('s-ren')}
       </Typography>
       <Accordion
         expanded={expanded === 'panel1'}
@@ -33,13 +35,14 @@ export default function ControlledAccordions() {
           id='panel1bh-header'
         >
           <Typography sx={{ width: '33%', flexShrink: 0 }}>
-            بيع العقار
+            {t('s-sel')}
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            لو بدك تبيع عقارات نقدم لك خدمات فحص و تسعير العقار لو بدك قبل عرضه
-            على الموقع
+            {t('s-sel-1')}
+            {t('s-sel-2')}
+            {t('s-sel-3')}
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -52,12 +55,15 @@ export default function ControlledAccordions() {
           aria-controls='panel2bh-content'
           id='panel2bh-header'
         >
-          <Typography sx={{ width: '33%', flexShrink: 0 }}>الأيجار </Typography>
+          <Typography sx={{ width: '33%', flexShrink: 0 }}>
+            {t('s-ren')}{' '}
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            بدك تأجر عقاراك نقدم خدمات صيانة العقارا ومراجعة العقد واتمام
-            الاجراءات القانونية قبل عرضه
+            {t('s-ren-1')}
+            {t('s-ren-2')}
+            {t('s-ren-3')}
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -70,12 +76,15 @@ export default function ControlledAccordions() {
           aria-controls='panel3bh-content'
           id='panel3bh-header'
         >
-          <Typography sx={{ width: '33%', flexShrink: 0 }}>شراء</Typography>
+          <Typography sx={{ width: '33%', flexShrink: 0 }}>
+            {t('s-buy')}
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            بدك تشتري عقار ما تعرف اى منطقة وشو السعر نعرض لك خدمات مراجعة
-            العقارات قبل الشراء و تسعير قيمة الأرض و مراجعة الأجراءات القانونية
+            {t('s-buy-1')}
+            {t('s-buy-2')}
+            {t('s-buy-3')}
           </Typography>
         </AccordionDetails>
       </Accordion>

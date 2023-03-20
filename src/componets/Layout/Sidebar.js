@@ -13,6 +13,7 @@ import {
 } from '@mui/material'
 import { Box } from '@mui/system'
 import React, { useContext, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { FaSearch } from 'react-icons/fa'
 import { GlobalAuth } from '../UserContext/Provider'
 import './sty.css'
@@ -45,7 +46,7 @@ function Sidebar({
       payload: { [e.target.name]: e.target.value },
     })
   }
-
+  const { t } = useTranslation()
   const {
     state: { filter },
     dispatch,
@@ -91,9 +92,10 @@ function Sidebar({
     <Drawer variant='persistent' hideBackdrop={true} open={open}>
       <SideConfig>
         <Typography>
-          ترتيب & بحث{' '}
-          <span style={{ ml: 7, fontSize: '.9rem', color: 'red' }}>
-            تم أيجاد {filterd?.length}
+          {t('side_head')}
+
+          <span style={{ my: 7, fontSize: '.9rem', color: 'red' }}>
+            {t('side_len')} {filterd?.length}
           </span>
         </Typography>
         <IconButton onClick={() => setopen(false)}>
@@ -106,7 +108,7 @@ function Sidebar({
           variant='standard'
           name='search'
           size='small'
-          helperText='... أبحث هون'
+          helperText={t('side-s')}
           value={filter.search}
           onChange={handelch}
           InputProps={{
@@ -121,7 +123,7 @@ function Sidebar({
 
       <Box sx={{ width: { lg: 250, md: 250 }, p: 2 }}>
         <Typography component='p' variant='subtitle2'>
-          نوع العرض
+          {t('side-pro-ty')}
         </Typography>
         <Box sx={{ flexDirection: 'row', mt: 0.4 }}>
           <Button
@@ -138,7 +140,7 @@ function Sidebar({
               setporpose('')
             }}
           >
-            الكل
+            {t('side-all')}
           </Button>
           {option?.purp?.map((p) => (
             <Button
@@ -156,13 +158,13 @@ function Sidebar({
                 setporpose(p.name)
               }}
             >
-              {p.name === 'Rent' ? 'للأيجار' : 'للبيع'}
+              {p.name === 'Rent' ? t('side-rent') : t('side-sell')}
             </Button>
           ))}
         </Box>
         <Box
           sx={{
-            mt: 2,
+            mt: 1,
             flexDirection: 'row',
             justifyContent: 'space-between',
             display: 'flex',
@@ -171,10 +173,10 @@ function Sidebar({
           {' '}
           <FormControl>
             <Typography component='p' variant='subtitle2'>
-              السعر الأدني
+              {t('side-min-p')}
             </Typography>
             <Select
-              label='السعر الأدني'
+              label={t('side-min-p')}
               name='min_price'
               variant='standard'
               value={filter.min_price}
@@ -191,16 +193,16 @@ function Sidebar({
           </FormControl>
           <FormControl>
             <Typography component='p' variant='subtitle2'>
-              السعر الأعلي
+              {t('side-max-p')}
             </Typography>
             <Select
-              label='السعر الأعلي'
+              label={t('side-max-p')}
               name='max_price'
               variant='standard'
               value={filter.max_price}
               onChange={handelch}
             >
-              <MenuItem value=''>غير محدود</MenuItem>
+              <MenuItem value=''> {t('side-unli')}</MenuItem>
               {v_max?.map((b) => (
                 <MenuItem key={b.name} value={b.value}>
                   {b.name}
@@ -211,7 +213,7 @@ function Sidebar({
         </Box>
         <Box
           sx={{
-            mt: 4,
+            mt: 2,
             flexDirection: 'row',
             justifyContent: 'space-evenly',
             display: 'flex',
@@ -219,17 +221,17 @@ function Sidebar({
         >
           <FormControl>
             <Typography component='p' variant='subtitle2'>
-              عدد الحمامات
+              {t('side-bath')}
             </Typography>
             <Select
-              label=' عدد الحمامات'
+              label={t('side-bath')}
               name='bathrooms'
               variant='standard'
               value={filter.bathrooms}
               onChange={handelch}
               fullWidth
             >
-              <MenuItem value=''>الكل</MenuItem>
+              <MenuItem value=''>{t('side-all')}</MenuItem>
               {bath?.map((b) => (
                 <MenuItem key={b.name} value={b.value}>
                   {b.name}
@@ -239,17 +241,17 @@ function Sidebar({
           </FormControl>
           <FormControl>
             <Typography component='p' variant='subtitle2'>
-              عدد الغرف
+              {t('side-room')}
             </Typography>
             <Select
-              label='عدد الغرف'
+              label={t('side-room')}
               name='num_rooms'
               variant='standard'
               value={filter.num_rooms}
               onChange={handelch}
               fullWidth
             >
-              <MenuItem value=''>الكل</MenuItem>
+              <MenuItem value=''>{t('side-all')}</MenuItem>
               {rooms?.map((b) => (
                 <MenuItem key={b.name} value={b.value}>
                   {b.name}
@@ -259,12 +261,12 @@ function Sidebar({
           </FormControl>
         </Box>
         <Box sx={{ flexDirection: 'row', m: 0.5 }}></Box>
-        <Box sx={{ mt: 2 }}>
+        <Box sx={{ mt: 1 }}>
           <Typography component='p' variant='subtitle2'>
-            المنطقة
+            {t('side-ar')}
           </Typography>
           <Select
-            label='Type'
+            label={t('side-ar')}
             name='aria'
             size='small'
             variant='filled'
@@ -272,7 +274,7 @@ function Sidebar({
             onChange={handelch}
             sx={{ width: '100%', mt: 0.4 }}
           >
-            <MenuItem value=''>الكل</MenuItem>
+            <MenuItem value=''>{t('side-all')}</MenuItem>
             {option?.lucation?.map((b) => (
               <MenuItem key={b.slug} value={b.id}>
                 {b.name}
@@ -280,20 +282,20 @@ function Sidebar({
             ))}
           </Select>
         </Box>
-        <Box sx={{ mt: 2 }}>
+        <Box sx={{ mt: 1 }}>
           <Typography component='p' variant='subtitle2'>
-            نوع المبني
+            {t('side-build')}
           </Typography>
           <Select
             sx={{ width: '100%', mt: 0.4 }}
-            label='Type'
+            label={t('side-build')}
             name='building_type'
             size='small'
             variant='filled'
             value={filter.building_type}
             onChange={handelch}
           >
-            <MenuItem value=''>الكل</MenuItem>
+            <MenuItem value=''>{t('side-all')}</MenuItem>
             {option?.buildings?.map((b) => (
               <MenuItem key={b.slug} value={b.id}>
                 {b.name}
@@ -303,19 +305,19 @@ function Sidebar({
         </Box>
         <Button
           sx={{
-            mt: 3,
+            mt: 1.5,
             padding: '0.5em 1rem',
             border: 'none',
             borderRadius: '1rem',
             cursor: 'pointer',
-            backgroundColor: 'rgb(185, 5, 59)',
+            backgroundColor: 'rgb(135, 2, 77)',
             color: 'inherit',
           }}
           onClick={() => {
             dispatch({ type: 'reset_filter' })
           }}
         >
-          أعادة تعين
+          {t('side-set')}
         </Button>
       </Box>
     </Drawer>

@@ -1,4 +1,4 @@
-import { Add, Cancel,  Send } from '@mui/icons-material'
+import { Add, Cancel, Send } from '@mui/icons-material'
 import {
   Stack,
   FormControl,
@@ -13,9 +13,9 @@ import {
   IconButton,
 } from '@mui/material'
 import React, { useState, useContext } from 'react'
+import { useTranslation } from 'react-i18next'
 import usePrivateRoute from '../../hooks.js/usePrivateRoute'
 import { GlobalAuth } from '../UserContext/Provider'
-
 
 const Lucation = () => {
   const initialBuilding = {
@@ -112,6 +112,7 @@ const Lucation = () => {
     dispatch,
     state: { detail, buildings, lucation, purp, rent_time, editing },
   } = useContext(GlobalAuth)
+  const { t } = useTranslation()
 
   const handelch = (e) => {
     dispatch({
@@ -164,7 +165,7 @@ const Lucation = () => {
                 display: 'flex',
               }}
             >
-              add Aria
+              {t('steps-aria')}
             </Typography>
             <Box>
               <TextField
@@ -173,7 +174,7 @@ const Lucation = () => {
                 veriant='standard'
                 id='name'
                 name='name'
-                label='name'
+                label={t('steps-name')}
                 fullWidth
                 type='text'
                 inputProps={{ minLength: 2 }}
@@ -247,7 +248,7 @@ const Lucation = () => {
                 display: 'flex',
               }}
             >
-              add Building
+              {t('steps-build')}
             </Typography>
             <Box>
               <TextField
@@ -256,7 +257,7 @@ const Lucation = () => {
                 veriant='standard'
                 id='name'
                 name='name'
-                label='name'
+                label={t('steps-name')}
                 fullWidth
                 type='text'
                 inputProps={{ minLength: 2 }}
@@ -329,7 +330,7 @@ const Lucation = () => {
             <IconButton onClick={() => setAria(true)} color='primary'>
               <Add />
             </IconButton>
-            <InputLabel>Aria</InputLabel>
+            <InputLabel>{t('steps-side-ar')}</InputLabel>
             <Select
               label='Type'
               name='aria'
@@ -363,7 +364,7 @@ const Lucation = () => {
             </Select>
           </FormControl>
           <FormControl>
-            <InputLabel>Rent Type</InputLabel>
+            <InputLabel>{t('steps-Rent')}</InputLabel>
             <Select
               label='Type'
               name='rent_type'
@@ -380,7 +381,6 @@ const Lucation = () => {
             </Select>
           </FormControl>
         </Box>
-        
       </Stack>
     </>
   )

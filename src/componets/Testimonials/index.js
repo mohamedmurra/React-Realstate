@@ -3,9 +3,11 @@ import { Avatar, Typography, Rating } from '@mui/material'
 import Slider from 'react-slick'
 import { Link } from 'react-router-dom'
 import { FaAngleDoubleRight } from 'react-icons/fa'
+import { useTranslation } from 'react-i18next'
 
 const ImgApi = process.env.REACT_APP_IMAGE_URL
 const Testimonial = ({ Testo, len }) => {
+  const { t } = useTranslation()
   const settings = {
     dots: true,
     infinite: true,
@@ -23,7 +25,7 @@ const Testimonial = ({ Testo, len }) => {
       >
         <span style={{ borderBottom: '1px solid #B00020' }}>
           {' '}
-          تقيمات المستخدمين ({len?.length})
+          {t('test')} ({len?.length})
         </span>
       </Typography>
       <Link style={{ textDecoration: 'none', color: 'inherit' }} to='/about-us'>
@@ -34,7 +36,7 @@ const Testimonial = ({ Testo, len }) => {
           textAlign='right'
         >
           {' '}
-          أضافة تقيم <FaAngleDoubleRight style={{ fontSize: '.5rem' }} />
+          {t('test-a')} <FaAngleDoubleRight style={{ fontSize: '.5rem' }} />
         </Typography>
       </Link>
       <div style={{ display: 'flex', justifyContent: 'center' }}>

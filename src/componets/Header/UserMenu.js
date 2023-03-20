@@ -14,9 +14,12 @@ import Login from '../../pages/Login'
 import { useNavigate } from 'react-router-dom'
 import { HasPerm } from '../../pages/Dashbord/Perms'
 import Profile from '../../pages/Profile'
+import { useTranslation } from 'react-i18next'
+import { Dropdown } from 'bootstrap'
 
 const ImgApi = process.env.REACT_APP_IMAGE_URL
 const UserMenu = () => {
+  const { t } = useTranslation()
   const AuthVal = useContext(GlobalAuth)
   const {
     state: { user },
@@ -46,13 +49,13 @@ const UserMenu = () => {
   return (
     <>
       {!user ? (
-        <Tooltip title='Login'>
+        <Tooltip title={t('login-')}>
           <Button
             color='inherit'
             startIcon={<Lock />}
             onClick={() => dispatch({ type: 'open_login' })}
           >
-            تسجيل الدخول
+            {t('h-log')}
           </Button>
         </Tooltip>
       ) : (
@@ -91,7 +94,7 @@ const UserMenu = () => {
                 setAnchorElUser(null)
               }}
             >
-              <Typography textAlign='center'>Profile</Typography>
+              <Typography textAlign='center'>{t('h-profile')}</Typography>
             </MenuItem>
             <MenuItem
               onClick={() => {
@@ -101,13 +104,14 @@ const UserMenu = () => {
                 setAnchorElUser(null)
               }}
             >
-              <Typography textAlign='center'>Dashbord</Typography>
+              <Typography textAlign='center'>{t('h-dash')}</Typography>
             </MenuItem>
             <MenuItem onClick={handlelogout}>
-              <Typography textAlign='center'>Logout</Typography>
+              <Typography textAlign='center'>{t('h-logout')}</Typography>
             </MenuItem>
           </>
         )}
+        
         <Login />
         <Profile />
       </Menu>

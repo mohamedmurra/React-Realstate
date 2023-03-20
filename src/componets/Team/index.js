@@ -2,8 +2,10 @@ import React from 'react'
 import Slider from 'react-slick'
 import { Container, Typography } from '@mui/material'
 import TeamCard from './card'
+import { useTranslation } from 'react-i18next'
 
 const TeamMember = ({ Team }) => {
+  const { t } = useTranslation()
   const settings = {
     dots: true,
     infinite: true,
@@ -48,7 +50,10 @@ const TeamMember = ({ Team }) => {
         component='h5'
         textAlign='center'
       >
-        <span style={{ borderBottom: '1px solid #B00020' }}>أدراة الموقع </span>{' '}
+        <span style={{ borderBottom: '1px solid #B00020' }}>
+          {' '}
+          {t('web-man')}{' '}
+        </span>{' '}
       </Typography>
       <Slider {...settings}>
         {Team?.map((member) => (

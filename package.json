@@ -25,6 +25,7 @@
     "framer-motion": "^6.3.4",
     "gapi-script": "^1.2.0",
     "i18next": "^22.4.11",
+    "i18next-browser-languagedetector": "^7.0.1",
     "jquery": "^3.6.0",
     "jwt-decode": "^3.1.2",
     "mapbox-gl": "^v2.12.0",

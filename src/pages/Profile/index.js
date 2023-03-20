@@ -14,9 +14,11 @@ import {
 import { GlobalAuth } from '../../componets/UserContext/Provider'
 import usePrivateRoute from '../../hooks.js/usePrivateRoute'
 import { grey } from '@mui/material/colors'
+import { useTranslation } from 'react-i18next'
 const ImgApi = process.env.REACT_APP_IMAGE_URL
 
 function Profile() {
+  const { t } = useTranslation()
   const Private = usePrivateRoute()
   const usernameRef = useRef()
   const emailRef = useRef()
@@ -104,7 +106,7 @@ function Profile() {
         }}
       >
         <DialogTitle>
-          Profile
+          {t('agent-title')}
           <IconButton
             onClick={() =>
               dispatch({ type: 'update_profile', payload: { open: false } })
@@ -116,7 +118,7 @@ function Profile() {
         </DialogTitle>
         <form onSubmit={handelSubmit}>
           <DialogContent dividers>
-            <DialogContentText>Update your Informations</DialogContentText>
+            <DialogContentText>{t('agent-sub-title')}</DialogContentText>
 
             <label htmlFor='profileImage'>
               <input
@@ -144,7 +146,7 @@ function Profile() {
               id='username'
               name='username'
               type='text'
-              label='username'
+              label={t('login-name')}
               value={user.username}
               onChange={handelChange}
               inputProps={{ minLength: 4 }}
@@ -159,7 +161,7 @@ function Profile() {
               id='email'
               name='email'
               type='email'
-              label='email'
+              label={t('login-email')}
               value={user.email}
               onChange={handelChange}
               inputProps={{ minLength: 7 }}
@@ -174,7 +176,7 @@ function Profile() {
               id='phone_number'
               name='phone_number'
               type='text'
-              label='phone number'
+              label={t('login-phone')}
               value={user.phone_number}
               onChange={handelChange}
               inputProps={{ minLength: 7 }}
@@ -187,7 +189,7 @@ function Profile() {
               id='first_name'
               name='first_name'
               type='text'
-              label='first name'
+              label={t('agent-first')}
               value={user.first_name}
               onChange={handelChange}
               inputProps={{ minLength: 2 }}
@@ -200,7 +202,7 @@ function Profile() {
               id='last_name'
               name='last_name'
               type='text'
-              label='last name'
+              label={t('agent-last')}
               value={user.last_name}
               onChange={handelChange}
               inputProps={{ minLength: 2 }}
@@ -214,7 +216,7 @@ function Profile() {
               id='whatssap'
               name='whatssap'
               type='number'
-              label='watssap number'
+              label={t('agent-whats')}
               value={user.whatssap}
               onChange={handelChange}
               inputProps={{ minLength: 7 }}
@@ -228,7 +230,7 @@ function Profile() {
               name='describe'
               type='text'
               fullWidth
-              label='about me'
+              label={t('agent-des')}
               value={user.describe}
               onChange={handelChange}
               inputProps={{ minLength: 2 }}
@@ -236,7 +238,7 @@ function Profile() {
 
             <DialogActions>
               <Button type='submit' variant='contained' endIcon={<Send />}>
-                Update
+                {t('agent-butt')}
               </Button>
             </DialogActions>
           </DialogContent>

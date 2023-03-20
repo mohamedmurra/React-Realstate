@@ -16,8 +16,10 @@ import Googlelog from './Googlelogin'
 import api from '../../utils/fetching'
 import jwt_decode from 'jwt-decode'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const Login = () => {
+  const { t } = useTranslation()
   const initialState = {
     email: '',
     username: '',
@@ -29,7 +31,7 @@ const Login = () => {
     state: { openLoggedIn },
     dispatch,
   } = useContext(GlobalAuth)
-  const [title, setTitle] = useState('تسجيل الدخول')
+  const [title, setTitle] = useState(t('login-'))
   const [isRegister, setisRegister] = useState(false)
   const [formData, setformData] = useState(initialState)
   const nameRef = useRef()
@@ -121,7 +123,7 @@ const Login = () => {
   }
 
   useEffect(() => {
-    isRegister ? setTitle(' حساب جديد') : setTitle('تسجيل الدخول')
+    isRegister ? setTitle(t('login-r')) : setTitle(t('login-'))
   }, [isRegister])
 
   const handelChange = (e) => {
@@ -173,14 +175,14 @@ const Login = () => {
       </DialogTitle>
       <form onSubmit={handelSubmit}>
         <DialogContent dividers>
-          <DialogContentText>أدخل بياناتك بالأسفل</DialogContentText>
+          <DialogContentText>{t('login-h')}</DialogContentText>
           <TextField
             autoFocus
             margin='normal'
             veriant='standard'
             id='email'
             name='email'
-            label='أيميل'
+            label={t('login-@')}
             type='email'
             fullWidth
             onChange={handelChange}
@@ -195,7 +197,7 @@ const Login = () => {
                 veriant='standard'
                 id='username'
                 name='username'
-                label='أسم المستخدم'
+                label={t('login-name')}
                 type='text'
                 fullWidth
                 onChange={handelChange}
@@ -208,29 +210,32 @@ const Login = () => {
                 veriant='standard'
                 id='phone_number'
                 name='phone_number'
-                label='رقم الهاتف'
+                label={t('login-phone')}
                 type='text'
                 fullWidth
                 onChange={handelChange}
                 inputRef={firstRef}
-                required
+                
               />
             </>
           )}
 
-          <PasswordIn {...{ passwordRef, handelChange }} />
+          <PasswordIn
+            label={t('login-pass')}
+            {...{ passwordRef, handelChange }}
+          />
           {isRegister && (
             <PasswordIn
               handelChange={handelChange}
               name='ConfirmPassword'
               id='ConfirmPassword'
-              label='تأكيد كلمة المرور'
+              label={t('login-pass2')}
               passwordRef={passwordConfirmRef}
             />
           )}
           <DialogActions sx={{ justifyContent: 'space-between' }}>
             <Button type='submit' variant='contained' endIcon={<Send />}>
-              تأكيد
+              {t('login-butt')}
             </Button>
             {!isRegister && (
               <Link
@@ -238,15 +243,15 @@ const Login = () => {
                 style={{ textDecoration: 'none', color: 'rgb(185, 5, 59)' }}
                 to='/passwordreset'
               >
-                نسيت كلمة المرور ؟
+                {t('login-pass-for')}
               </Link>
             )}
           </DialogActions>
           <DialogActions sx={{ justifyContent: 'left', p: '5px 24px' }}>
+            {isRegister ? t('login-have') : t('login-dont-h')}
             <Button onClick={() => setisRegister(!isRegister)}>
-              {isRegister ? 'سجل الدخول' : 'سجل حساب جديد'}
+              {isRegister ? t('login-') : t('login-r')}
             </Button>
-            {isRegister ? 'لديك حساب ؟' : 'ليس لديك حساب ؟'}
           </DialogActions>
           <DialogActions sx={{ justifyContent: 'center', p: '24px' }}>
             <Googlelog />

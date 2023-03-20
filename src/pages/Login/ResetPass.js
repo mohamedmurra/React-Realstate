@@ -5,8 +5,10 @@ import { GlobalAuth } from '../../componets/UserContext/Provider'
 import { Navigate, useNavigate } from 'react-router-dom'
 import api from '../../utils/fetching'
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 
 function ResetPass() {
+  const { t } = useTranslation()
   const {
     state: { user },
     dispatch,
@@ -32,7 +34,6 @@ function ResetPass() {
       })
       Navigations('/')
     } catch (error) {
-     
       dispatch({
         type: 'alert',
         payload: {
@@ -58,15 +59,13 @@ function ResetPass() {
         <Navigate to='/' />
       ) : (
         <>
-          <Typography variant='h4'>
-            :أدخل الأيميل لأسترجاع كلمة المرور
-          </Typography>
+          <Typography variant='h5'>{t('pass-res')}</Typography>
           <form onSubmit={(e) => onSubmit(e)}>
             <div style={{ marginTop: 4 }} className='form-group'>
               <input
                 className='form-control'
                 type='email'
-                placeholder='Email'
+                placeholder={t('contact-email')}
                 name='email'
                 value={email}
                 onChange={(e) => setemail(e.target.value)}
@@ -74,7 +73,7 @@ function ResetPass() {
               />
             </div>
             <Button sx={{ mt: 3 }} variant='contained' type='submit'>
-              Reset Password
+              {t('pass-but')}
             </Button>
           </form>
         </>

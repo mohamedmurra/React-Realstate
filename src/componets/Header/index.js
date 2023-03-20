@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { styled } from '@mui/material/styles'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
@@ -8,9 +7,7 @@ import Typography from '@mui/material/Typography'
 import Menu from '@mui/material/Menu'
 import MenuIcon from '@mui/icons-material/Menu'
 import Container from '@mui/material/Container'
-import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
-import Tooltip from '@mui/material/Tooltip'
 import MenuItem from '@mui/material/MenuItem'
 import Brightness4Icon from '@mui/icons-material/Brightness4'
 import Brightness7Icon from '@mui/icons-material/Brightness7'
@@ -18,8 +15,11 @@ import { ColorModeContex } from '../Theme/index'
 import { Link } from 'react-router-dom'
 import UserMenu from './UserMenu'
 import { GlobalAuth } from '../UserContext/Provider'
+import { useTranslation } from 'react-i18next'
+import { FormControl, Select } from '@mui/material'
 
 const Header = () => {
+  const { t, i18n } = useTranslation()
   const {
     state: { user },
   } = React.useContext(GlobalAuth)
@@ -33,7 +33,6 @@ const Header = () => {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null)
   }
-
   return (
     <AppBar position='sticky'>
       <Container maxWidth='xl'>
@@ -55,7 +54,7 @@ const Header = () => {
             </Typography>
             <Typography component='h1' color={'gold'}>
               {' '}
-              للعقارات
+              {t('web-Title')}
             </Typography>
           </Typography>
 
@@ -93,7 +92,7 @@ const Header = () => {
                     style={{ textDecoration: 'none', color: 'inherit' }}
                     to='/'
                   >
-                    الرئيسية
+                    {t('h-Home')}
                   </Link>
                 </Typography>
               </MenuItem>
@@ -103,7 +102,7 @@ const Header = () => {
                     style={{ textDecoration: 'none', color: 'inherit' }}
                     to='/main'
                   >
-                    العقارات
+                    {t('h-pro')}
                   </Link>
                 </Typography>
               </MenuItem>
@@ -113,7 +112,7 @@ const Header = () => {
                     style={{ textDecoration: 'none', color: 'inherit' }}
                     to='/Blog'
                   >
-                    الصحيفة
+                    {t('h-blog')}
                   </Link>
                 </Typography>
               </MenuItem>
@@ -123,7 +122,7 @@ const Header = () => {
                     style={{ textDecoration: 'none', color: 'inherit' }}
                     to='/Agents'
                   >
-                    العملاء
+                    {t('h-agent')}
                   </Link>
                 </Typography>
               </MenuItem>
@@ -133,7 +132,7 @@ const Header = () => {
                     style={{ textDecoration: 'none', color: 'inherit' }}
                     to='/Mapp'
                   >
-                    الخريطة
+                    {t('h-map')}
                   </Link>
                 </Typography>
               </MenuItem>
@@ -144,7 +143,7 @@ const Header = () => {
                       style={{ textDecoration: 'none', color: 'inherit' }}
                       to='/faver'
                     >
-                      المفضلات
+                      {t('h-fave')}
                     </Link>
                   </Typography>
                 </MenuItem>
@@ -155,7 +154,7 @@ const Header = () => {
                     style={{ textDecoration: 'none', color: 'inherit' }}
                     to='/about-us'
                   >
-                    حول الموقع
+                    {t('h-about')}
                   </Link>
                 </Typography>
               </MenuItem>
@@ -165,7 +164,7 @@ const Header = () => {
                     style={{ textDecoration: 'none', color: 'inherit' }}
                     to='/contact'
                   >
-                    الأتصال بنا
+                    {t('h-contact')}
                   </Link>
                 </Typography>
               </MenuItem>
@@ -188,7 +187,7 @@ const Header = () => {
             </Typography>
             <Typography component='h1' color={'gold'}>
               {' '}
-              للعقارات
+              {t('web-Title')}
             </Typography>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
@@ -197,7 +196,7 @@ const Header = () => {
               sx={{ my: 2, color: 'white', display: 'block' }}
             >
               <Link style={{ textDecoration: 'none', color: 'inherit' }} to='/'>
-                الرئيسية
+                {t('h-Home')}
               </Link>
             </Button>
             <Button
@@ -208,7 +207,7 @@ const Header = () => {
                 style={{ textDecoration: 'none', color: 'inherit' }}
                 to='/main'
               >
-                العقارات
+                {t('h-pro')}
               </Link>
             </Button>
             <Button
@@ -219,7 +218,7 @@ const Header = () => {
                 style={{ textDecoration: 'none', color: 'inherit' }}
                 to='/blog'
               >
-                الصحيفة
+                {t('h-blog')}
               </Link>
             </Button>
             <Button
@@ -230,7 +229,7 @@ const Header = () => {
                 style={{ textDecoration: 'none', color: 'inherit' }}
                 to='/Agents'
               >
-                العملاء
+                {t('h-agent')}
               </Link>
             </Button>
             <Button
@@ -241,7 +240,7 @@ const Header = () => {
                 style={{ textDecoration: 'none', color: 'inherit' }}
                 to='/Mapp'
               >
-                الخريطة
+                {t('h-map')}
               </Link>
             </Button>
             {user && (
@@ -253,7 +252,7 @@ const Header = () => {
                   style={{ textDecoration: 'none', color: 'inherit' }}
                   to='/faver'
                 >
-                  المفضلات
+                  {t('h-fave')}
                 </Link>
               </Button>
             )}
@@ -265,7 +264,7 @@ const Header = () => {
                 style={{ textDecoration: 'none', color: 'inherit' }}
                 to='/contact'
               >
-                الأتصال بنا
+                {t('h-contact')}
               </Link>
             </Button>
             <Button
@@ -276,11 +275,34 @@ const Header = () => {
                 style={{ textDecoration: 'none', color: 'inherit' }}
                 to='/about-us'
               >
-                حول الموقع
+                {t('h-about')}
               </Link>
             </Button>
           </Box>
-
+          <FormControl size='small'>
+            <Select
+              onChange={(e) => i18n.changeLanguage(e.target.value)}
+              value={t('lang')}
+              size='small'
+              variant='standard'
+              sx={{
+                boxShadow:'none',
+                backgroundColor: 'inherit',
+                border: 'none',
+                color: '#fff',
+                '.MuiOutinedInput-notchedOutline': { border: 0 },
+              }}
+              disableUnderline={true}
+              inputProps={{ IconComponet: () => null }}
+            >
+              <MenuItem sx={{ color: 'inherit' }} value='en'>
+                EN
+              </MenuItem>
+              <MenuItem sx={{ color: 'inherit' }} value='ar'>
+                AR
+              </MenuItem>
+            </Select>
+          </FormControl>
           <Box sx={{ flexGrow: 0 }}>
             <IconButton
               sx={{ mr: 1 }}

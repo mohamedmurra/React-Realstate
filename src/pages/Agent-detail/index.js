@@ -8,9 +8,11 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import Slider from 'react-slick'
 import HouseCard from '../../componets/Latest-Property/card'
 import { GlobalAuth } from '../../componets/UserContext/Provider'
+import { useTranslation } from 'react-i18next'
 const ImgApi = process.env.REACT_APP_IMAGE_URL
 
 const AgentDetail = () => {
+  const { t } = useTranslation()
   const { dispatch } = useContext(GlobalAuth)
   const [agent, setAgent] = useState({})
   const pram = useParams()
@@ -113,7 +115,7 @@ const AgentDetail = () => {
       </div>
       <Container style={{ marginTop: 20 }}>
         <Typography style={{ marginBottom: 10 }} variant='h4' component='h2'>
-          عقارات العميل ({agent?.proper?.length})
+          {t('agent-pro')} ({agent?.proper?.length})
         </Typography>
         <Slider {...settings}>
           {agent?.proper?.map((hou) => (

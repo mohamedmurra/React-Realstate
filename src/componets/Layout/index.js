@@ -48,13 +48,15 @@ const Layout = () => {
       } catch (error) {
         dispatch({
           type: 'alert',
-          payload: { open: true, severity: 'error', message: error.message },
+          payload: {
+            open: true,
+            severity: 'error',
+            message: error.message,
+          },
         })
       }
     }
     getdata()
-  }, [])
-  useEffect(() => {
     const getoption = async () => {
       try {
         let { data } = await api.get('api/home/searsh-filter/')
@@ -94,7 +96,7 @@ const Layout = () => {
       >
         <Tooltip title='بحث & ترتيب'>
           <IconButton
-            sx={{ background: 'rgb(185, 5, 59)', mb: 2 }}
+            sx={{ background: 'rgb(135, 2, 77)', mb: 2 }}
             size='large'
             onClick={() => setopen(true)}
           >

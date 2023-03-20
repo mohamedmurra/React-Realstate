@@ -3,9 +3,10 @@ import React, { useContext } from 'react'
 import { GlobalAuth } from '../UserContext/Provider'
 import CustomeText from '../CustomeText'
 import Maps from './Maps'
-import Mapp from '../../pages/Mapp'
+import { useTranslation } from 'react-i18next'
 
 const Cover = () => {
+  const { t } = useTranslation()
   const {
     dispatch,
     state: { detail, editing },
@@ -37,7 +38,7 @@ const Cover = () => {
       }}
     >
       <FormControl>
-        <label htmlFor='image'>Cover image</label>
+        <label htmlFor='image'>{t('steps-img')}</label>
         <input
           accept='image/*'
           onChange={editing ? handeledit : handelIMg}
@@ -52,7 +53,7 @@ const Cover = () => {
       />
       <FormControl>
         <FormControlLabel
-          label='Status of Property'
+          label={t('steps-status')}
           control={
             <Checkbox
               name='status'

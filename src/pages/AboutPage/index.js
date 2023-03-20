@@ -12,10 +12,12 @@ import api from '../../utils/fetching'
 import { GlobalAuth } from '../../componets/UserContext/Provider'
 import { useNavigate } from 'react-router-dom'
 import ControlledAccordions from './about'
+import { useTranslation } from 'react-i18next'
 
 const ImgApi = process.env.REACT_APP_IMAGE_URL
 
 const About = () => {
+  const { t } = useTranslation()
   const navigate = useNavigate()
   const { dispatch } = useContext(GlobalAuth)
   const [admi, setadmin] = useState({})
@@ -90,7 +92,7 @@ const About = () => {
 
   return (
     <>
-      <div  className='container'>
+      <div className='container'>
         <div
           style={{ margin: 20 }}
           className='row justify-content-center about-info'
@@ -110,14 +112,13 @@ const About = () => {
                     {admi?.first_name} {admi?.last_name}
                     <small style={{ fontSize: '1rem', color: 'orangered' }}>
                       {' '}
-                      أدمن الموقع
+                      {t('about-admin')}
                     </small>
                   </h3>
                   <p>
                     {' '}
-                    hello welcome to my websity its build using django and react
-                    its for sell if you like to buy it contact me whatsapp +249
-                    {admi?.whatssap} email {admi?.email}
+                    {t('about-admin-detail')} +249
+                    {admi?.phone_number} {admi?.email}
                   </p>
                 </div>
               </div>
@@ -138,13 +139,13 @@ const About = () => {
                   variant='h6'
                   textAlign='center'
                 >
-                  أضف تقيمك عن الموقع
+                  {t('about-rating-ti')}
                 </Typography>
                 <form onSubmit={handelSubmit}>
                   <div style={{ margin: 5 }} className='row'>
                     <div className='col-md-10 mb-3'>
                       <div className='form-group'>
-                        <label htmlFor='rating'> التقيم : </label>
+                        <label htmlFor='rating'> {t('about-rate')} : </label>
                         <Rating
                           id='rating'
                           name='review'
@@ -161,7 +162,7 @@ const About = () => {
                           veriant='standard'
                           id='name'
                           name='name'
-                          label='الأسم'
+                          label={t('about-name')}
                           type='text'
                           onChange={handelChange}
                           inputProps={{ minLength: 4 }}
@@ -177,14 +178,14 @@ const About = () => {
                           className='form-control'
                           cols='45'
                           rows='8'
-                          placeholder='التعليق'
+                          placeholder={t('about-comment')}
                           required
                         ></textarea>
                       </div>
                     </div>
                     <div className='col-md-12 mb-3'>
                       <div className='form-group'>
-                        <label htmlFor='image'> الصورة : </label>
+                        <label htmlFor='image'> {t('about-img')} : </label>
                         <input
                           accept='image/*'
                           onChange={(e) =>
@@ -205,7 +206,7 @@ const About = () => {
                         variant='contained'
                         endIcon={<Send />}
                       >
-                        أضافة تقيم
+                        {t('about-butt')}
                       </Button>
                     </div>
                   </div>

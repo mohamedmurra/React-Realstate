@@ -4,8 +4,10 @@ import { Typography, Container } from '@mui/material'
 import HouseCard from './card'
 import { Link } from 'react-router-dom'
 import { FaAngleDoubleRight } from 'react-icons/fa'
+import { useTranslation } from 'react-i18next'
 
 const LatestProperty = ({ pro }) => {
+  const {t}=useTranslation()
   const settings = {
     dots: true,
     infinite: true,
@@ -54,7 +56,7 @@ const LatestProperty = ({ pro }) => {
           >
             <span style={{ borderBottom: '1px solid #B00020' }}>
               {' '}
-              أخر عقارات تم أضافتها
+              {t('latest-p')}
             </span>{' '}
           </Typography>
           <Link style={{ textDecoration: 'none', color: 'inherit' }} to='/main'>
@@ -65,7 +67,7 @@ const LatestProperty = ({ pro }) => {
               textAlign='right'
             >
               {' '}
-              كل العقارات <FaAngleDoubleRight style={{ fontSize: '.5rem' }} />
+              {t('all-p')}<FaAngleDoubleRight style={{ fontSize: '.5rem' }} />
             </Typography>
           </Link>
 

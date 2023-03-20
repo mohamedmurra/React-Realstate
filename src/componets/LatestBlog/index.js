@@ -4,8 +4,10 @@ import { Typography, Container } from '@mui/material'
 import BlogCard from './card'
 import { Link } from 'react-router-dom'
 import { FaAngleDoubleRight } from 'react-icons/fa'
+import { useTranslation } from 'react-i18next'
 
 const LatestBlog = ({ Lblog }) => {
+  const { t } = useTranslation()
   const settings = {
     dots: true,
     infinite: true,
@@ -53,7 +55,7 @@ const LatestBlog = ({ Lblog }) => {
         >
           <span style={{ borderBottom: '1px solid #B00020' }}>
             {' '}
-            أخر منشورات تم أضافتها
+            {t('latest-b')}
           </span>{' '}
         </Typography>
         <Link style={{ textDecoration: 'none', color: 'inherit' }} to='/blog'>
@@ -64,7 +66,8 @@ const LatestBlog = ({ Lblog }) => {
             textAlign='right'
           >
             {' '}
-            كل المنشورات <FaAngleDoubleRight style={{ fontSize: '.5rem' }} />
+            {t('all-b')}
+            <FaAngleDoubleRight style={{ fontSize: '.5rem' }} />
           </Typography>
         </Link>
 

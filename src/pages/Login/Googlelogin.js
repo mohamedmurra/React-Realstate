@@ -5,11 +5,11 @@ import api from '../../utils/fetching'
 import GoogleLogin from '@leecheuk/react-google-login'
 import { GlobalAuth } from '../../componets/UserContext/Provider'
 import jwt_decode from 'jwt-decode'
+import { useTranslation } from 'react-i18next'
 
 const Googlelog = () => {
-  const {
-    dispatch,
-  } = useContext(GlobalAuth)
+  const { t } = useTranslation()
+  const { dispatch } = useContext(GlobalAuth)
   useEffect(() => {
     function start() {
       gapi.client.init({
@@ -21,7 +21,6 @@ const Googlelog = () => {
     gapi.load('client:auth2', start)
   }, [])
   const continueWithGoogle = (res) => {
-
     SentIt(res.accessToken)
   }
   const SentIt = async (acc) => {
@@ -66,7 +65,7 @@ const Googlelog = () => {
     <Box>
       <GoogleLogin
         clientId={process.env.REACT_APP_GOOGLE_ID}
-        buttonText='Continue With Google'
+        buttonText={t('login-google')}
         cookiePolicy={'single_host_origin'}
         onSuccess={continueWithGoogle}
         onFailure={() =>

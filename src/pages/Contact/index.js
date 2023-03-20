@@ -10,8 +10,10 @@ import MarkEmailUnreadIcon from '@mui/icons-material/MarkEmailUnread'
 import api from '../../utils/fetching'
 import { GlobalAuth } from '../../componets/UserContext/Provider'
 import { useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const Contact = () => {
+  const { t } = useTranslation()
   const { dispatch } = useContext(GlobalAuth)
   const navigate = useNavigate()
   const nameRef = useRef()
@@ -64,7 +66,7 @@ const Contact = () => {
   }
 
   useEffect(() => {
-    document.title = 'تفاصيل التواصل بنا'
+    document.title = ' التواصل بنا'
   }, [])
 
   const handelSub = (e) => {
@@ -80,7 +82,7 @@ const Contact = () => {
           component='h4'
           textAlign='center'
         >
-          التواصل
+          {t('contact-ti')}
         </Typography>
         <div className='col-sm-12'></div>
         <div className='col-sm-12 '>
@@ -91,7 +93,7 @@ const Contact = () => {
               component='h3'
               textAlign='center'
             >
-              توأصل معنا عن طريق رسالة
+              {t('contact-subb')}
             </Typography>
             <div className='col-md-7'>
               <form onSubmit={handelSub}>
@@ -104,7 +106,7 @@ const Contact = () => {
                         veriant='standard'
                         id='name'
                         name='name'
-                        label='الأسم'
+                        label={t('contact-name')}
                         fullWidth
                         type='text'
                         onChange={handelChange}
@@ -122,7 +124,7 @@ const Contact = () => {
                         id='email'
                         name='email'
                         fullWidth
-                        label='أيميل'
+                        label={t('contact-email')}
                         type='email'
                         onChange={handelChange}
                         inputRef={emailRef}
@@ -138,7 +140,7 @@ const Contact = () => {
                         veriant='standard'
                         id='subject'
                         name='subject'
-                        label='الموضوع'
+                        label={t('contact-sub')}
                         type='text'
                         fullWidth
                         onChange={handelChange}
@@ -156,7 +158,7 @@ const Contact = () => {
                         className='form-control'
                         cols='45'
                         rows='8'
-                        placeholder='الرسالة'
+                        placeholder={t('contact-msg')}
                         required
                       ></textarea>
                     </div>
@@ -169,7 +171,7 @@ const Contact = () => {
                       variant='contained'
                       endIcon={<Send />}
                     >
-                      أرسال الرسالة
+                      {t('contact-but')}
                     </Button>
                   </div>
                 </div>
@@ -186,19 +188,19 @@ const Contact = () => {
                       <MarkEmailUnreadIcon
                         style={{ color: 'orangered', marginRight: 5 }}
                       />
-                      معلومات التواصل
+                      {t('contact-details')}
                     </h4>
                   </div>
                   <div className='icon-box-content'>
                     <p className='mb-1'>
-                      الأيميل :
+                      {t('contact-email')} :
                       <span className='color-a'>
                         {' '}
                         mohamedmura1995@gmail.com
                       </span>
                     </p>
                     <p className='mb-1'>
-                      رقم الهاتف :
+                      {t('login-phone')} :
                       <span className='color-a'> +249 115616181</span>
                     </p>
                   </div>
@@ -214,13 +216,13 @@ const Contact = () => {
                       <LocationOnIcon
                         style={{ color: 'orangered', marginRight: 5 }}
                       />{' '}
-                      الموقع
+                      {t('contact-lucation')}
                     </h4>
                   </div>
                   <div className='icon-box-content'>
                     <p className='mb-1'>
-                      الخرطوم, الديوم الشرقية,
-                      <br /> أبو حمامة
+                      {t('contact-lucation-ci')}, {t('contact-lucation-ar')},
+                      <br /> {t('contact-lucation-pl')}
                     </p>
                   </div>
                 </div>
@@ -231,7 +233,7 @@ const Contact = () => {
                 </div>
                 <div className='icon-box-content table-cell'>
                   <div className='icon-box-title'>
-                    <h4 className='icon-title'>Social networks</h4>
+                    <h4 className='icon-title'>{t('contact-socail')} </h4>
                   </div>
                   <div className='icon-box-content'>
                     <div className='socials-footer'>

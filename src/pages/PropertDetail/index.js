@@ -33,11 +33,14 @@ import 'swiper/css/lazy'
 import 'swiper/css/zoom'
 import './swiper.css'
 import { FaHeart } from 'react-icons/fa'
+import { useTranslation } from 'react-i18next'
 import usePrivateRoute from '../../hooks.js/usePrivateRoute'
+
 const url = process.env.REACT_APP_POINT
 const ImgApi = process.env.REACT_APP_IMAGE_URL
 
 const PropertyDetail = () => {
+  const { t } = useTranslation()
   const PrivateRoute = usePrivateRoute()
   const {
     state: { user, s_comment, fave },
@@ -170,12 +173,14 @@ const PropertyDetail = () => {
               <div className='row mb-3'>
                 <div className='col-4 themed-grid-col'>
                   <div className='status'>
-                    {house.status ? 'متأح' : 'غير متأح '}
+                    {house.status ? t('pro-d-a') : t('pro-d-na')}
                   </div>
                 </div>
                 <div className='col-4 themed-grid-col'>
                   <div className='purp'>
-                    {house.property_type === 'Rent' ? 'للأيجار' : 'للبيع'}
+                    {house.property_type === 'Rent'
+                      ? t('side-rent')
+                      : t('side-sell')}
                   </div>
                 </div>
                 <div className='col-4 themed-grid-col'>
@@ -241,7 +246,7 @@ const PropertyDetail = () => {
                   variant='h4'
                   component='h2'
                 >
-                  <span style={{ marginLeft: 4 }}>الوصف</span>
+                  <span style={{ marginLeft: 4 }}>{t('pro-desc')}</span>
                 </Typography>
                 <p style={{ fontSize: '1rem' }}>{house.description}</p>
               </div>
@@ -258,7 +263,7 @@ const PropertyDetail = () => {
                       variant='h4'
                       component='h2'
                     >
-                      <span style={{ marginLeft: 4 }}>حول العقار</span>
+                      <span style={{ marginLeft: 4 }}>{t('pro-about')}</span>
                     </Typography>
                     <div className=''>
                       <Typography
@@ -269,7 +274,7 @@ const PropertyDetail = () => {
                         <BedOutlined
                           style={{ color: 'orangered', marginRight: 4 }}
                         />
-                        الغرف :{' '}
+                        {t('side-room')} :{' '}
                         <span style={{ marginTop: 15, marginLeft: 3 }}>
                           {house.num_rooms}
                         </span>
@@ -282,7 +287,7 @@ const PropertyDetail = () => {
                         <BathtubOutlined
                           style={{ color: 'orangered', marginRight: 4 }}
                         />
-                        الحمامات :{' '}
+                        {t('side-bath')} :{' '}
                         <span style={{ marginTop: 15, marginLeft: 3 }}>
                           {house.bathrooms}
                         </span>
@@ -295,9 +300,11 @@ const PropertyDetail = () => {
                         <RecentActorsOutlined
                           style={{ color: 'orangered', marginRight: 4 }}
                         />
-                        نوع العرض :{' '}
+                        {t('side-pro-ty')} :{' '}
                         <span style={{ marginTop: 15, marginLeft: 3 }}>
-                          {house.property_type === 'Rent' ? 'للأيجار' : 'للبيع'}
+                          {house.property_type === 'Rent'
+                            ? t('side-rent')
+                            : t('side-sell')}
                         </span>
                       </Typography>
                       <Typography
@@ -308,9 +315,9 @@ const PropertyDetail = () => {
                         <BsGridFill
                           style={{ color: 'orangered', marginRight: 8 }}
                         />
-                        المساحة :
+                        {t('pro-space')} :
                         <span style={{ marginLeft: 3, marginRight: 2 }}>
-                          {house.space} متر2
+                          {house.space} {t('pro-space-d')}
                         </span>
                       </Typography>
                       <Typography
@@ -321,7 +328,7 @@ const PropertyDetail = () => {
                         <HomeOutlined
                           style={{ color: 'orangered', marginRight: 4 }}
                         />
-                        نوع المبني :{' '}
+                        {t('side-build')} :{' '}
                         <span style={{ marginTop: 15, marginLeft: 3 }}>
                           {house.building_type}
                         </span>
@@ -335,7 +342,7 @@ const PropertyDetail = () => {
                           <PriceCheck
                             style={{ color: 'orangered', marginRight: 4 }}
                           />
-                          <span>السعر : </span>
+                          <span>{t('pro-price')} : </span>
                           <NumberFormat
                             value={house.price}
                             displayType={'text'}
@@ -355,7 +362,7 @@ const PropertyDetail = () => {
                           <PriceCheck
                             style={{ color: 'orangered', marginRight: 4 }}
                           />
-                          السعر :
+                          {t('pro-price')} :
                           <NumberFormat
                             value={house.price}
                             displayType={'text'}
@@ -379,12 +386,12 @@ const PropertyDetail = () => {
                           <CheckCircle
                             style={{ color: 'orangered', marginRight: 4 }}
                           />
-                          الحالة :{' '}
+                          {t('pro-status')} :{' '}
                           <span
                             className='bg-primary'
                             style={{ marginTop: 15, marginLeft: 3 }}
                           >
-                            متاح
+                            {t('pro-d-a')}
                           </span>
                         </Typography>
                       ) : (
@@ -396,12 +403,12 @@ const PropertyDetail = () => {
                           <NotAccessible
                             style={{ color: 'orangered', marginRight: 4 }}
                           />
-                          الحالة :{' '}
+                          {t('pro-status')} :{' '}
                           <span
                             className='bg-danger'
                             style={{ marginTop: 15, marginLeft: 3 }}
                           >
-                            غير متاح
+                            {t('pro-d-na')}
                           </span>
                         </Typography>
                       )}
@@ -416,7 +423,7 @@ const PropertyDetail = () => {
                         variant='h4'
                         component='h2'
                       >
-                        <span style={{ marginLeft: 4 }}>الأضافات</span>
+                        <span style={{ marginLeft: 4 }}>{t('pro-extra')}</span>
                       </Typography>
                       {house?.info?.map(({ name, id }) => (
                         <div key={id}>
@@ -441,7 +448,7 @@ const PropertyDetail = () => {
                   style={{ marginTop: 30 }}
                   textAlign='center'
                 >
-                  الأتصال بالعميل
+                  {t('pro-agent')}
                 </Typography>
                 <TeamCard key={house?.Agent} member={house?.Agent} />
               </div>
@@ -453,7 +460,7 @@ const PropertyDetail = () => {
                     style={{ marginTop: 60 }}
                     textAlign='center'
                   >
-                    عقارات فى المنطقة
+                    {t('pro-aria')}
                   </Typography>
                   <Slider {...settings}>
                     {house?.Related?.map((hou) => (
@@ -471,7 +478,7 @@ const PropertyDetail = () => {
               style={{ marginTop: 5 }}
               textAlign='left'
             >
-              التعليقات ({house?.comment?.length})
+              {t('pro-comment')} ({house?.comment?.length})
             </Typography>
             <Paper>
               {user ? (
@@ -483,7 +490,7 @@ const PropertyDetail = () => {
                   style={{ marginTop: 20 }}
                   textAlign='left'
                 >
-                  سجل الدخول للتعليق
+                  {t('pro-comment-re')}
                 </Typography>
               )}
 

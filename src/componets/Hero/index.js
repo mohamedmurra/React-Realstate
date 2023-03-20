@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@mui/styles'
 import imgd from '../../assets/italiian.jpg'
 import { Collapse, CssBaseline } from '@mui/material'
+import { useTranslation } from 'react-i18next'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minHeight: '100vh',
+    minHeight: '90vh',
     backgroundImage: `url(${imgd})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
@@ -26,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 export default function Hero() {
+  const { t } = useTranslation()
   const [checked, setchecked] = useState(false)
   const classes = useStyles()
   useEffect(() => {
@@ -40,8 +42,9 @@ export default function Hero() {
         collapseheight={50}
       >
         <h1 className={classes.Tilte}>
-          أعثر على منزل الأحلام <br />
-          <span className={classes.ColorText}>عن طريقنا</span>
+          {t('hero-top')}
+          <br />
+          <span className={classes.ColorText}>{t('hero-bot')}</span>
           <br />
         </h1>
       </Collapse>

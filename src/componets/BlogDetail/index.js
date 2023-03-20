@@ -6,8 +6,10 @@ import TeamCard from '../TeamCard'
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth'
 import { GlobalAuth } from '../UserContext/Provider'
 import moment from 'moment'
+import { useTranslation } from 'react-i18next'
 
 const BlogDetail = () => {
+  const { t } = useTranslation()
   const { dispatch } = useContext(GlobalAuth)
   const [blog, setblog] = useState({})
   const post = useParams()
@@ -85,7 +87,7 @@ const BlogDetail = () => {
               variant='h5'
               component='h3'
             >
-              الكاتب
+              {t('writer')}
             </Typography>
             <TeamCard member={member} />
           </div>
