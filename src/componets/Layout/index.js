@@ -36,16 +36,18 @@ const Layout = () => {
   useEffect(() => {
     document.title = 'العقارات'
     const getdata = async () => {
+      dispatch({ type: 'start_loading' })
       try {
         let { data } = await api.get(
           `api/home/?ordering=${filter.ordering}&aria=${filter.aria}&building_type=${filter.building_type}&property_type=${filter.property_type}&num_rooms=${filter.num_rooms}&status=${filter.status}&page=${filter.page}&search=${filter.search}&min_price=${filter.min_price}&max_price=${filter.max_price}&bathrooms=${filter.bathrooms}`
         )
-
+        dispatch({ type: 'end_loading' })
         setprope(data?.results)
         setfilterd(data?.results)
         setnum(data?.total_pages)
         setshow(true)
       } catch (error) {
+        dispatch({ type: 'end_loading' })
         dispatch({
           type: 'alert',
           payload: {

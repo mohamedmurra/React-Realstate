@@ -107,11 +107,11 @@ const UserMenu = () => {
               <Typography textAlign='center'>{t('h-dash')}</Typography>
             </MenuItem>
             <MenuItem onClick={handlelogout}>
-              <Typography textAlign='center'>{t('h-logout')}</Typography>
+              <Typography textAlign='center'>{t('h-out')}</Typography>
             </MenuItem>
           </>
         )}
-        
+
         <Login />
         <Profile />
       </Menu>
