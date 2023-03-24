@@ -161,7 +161,7 @@ function Profile() {
               id='email'
               name='email'
               type='email'
-              label={t('login-email')}
+              label={t('login-@')}
               value={user.email}
               onChange={handelChange}
               inputProps={{ minLength: 7 }}

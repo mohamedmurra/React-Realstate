@@ -5,6 +5,7 @@ import {
   Button,
   Paper,
   Box,
+  Container,
 } from '@mui/material'
 import React, { useState, useContext, useEffect } from 'react'
 import { Send } from '@mui/icons-material'
@@ -91,7 +92,7 @@ const About = () => {
   }
 
   return (
-    <>
+    <Container>
       <div className='container'>
         <div
           style={{ margin: 20 }}
@@ -216,7 +217,7 @@ const About = () => {
           </div>
         </Paper>
       </div>
-    </>
+    </Container>
   )
 }
 

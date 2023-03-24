@@ -23,7 +23,7 @@ export default function ControlledAccordions() {
         variant='h6'
         textAlign='center'
       >
-        {t('s-ren')}
+        {t('s-about')}
       </Typography>
       <Accordion
         expanded={expanded === 'panel1'}

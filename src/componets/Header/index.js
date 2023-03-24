@@ -279,31 +279,38 @@ const Header = () => {
               </Link>
             </Button>
           </Box>
-          <FormControl size='small'>
-            <Select
-              onChange={(e) => i18n.changeLanguage(e.target.value)}
-              value={t('lang')}
-              size='small'
-              variant='standard'
-              sx={{
-                boxShadow:'none',
-                backgroundColor: 'inherit',
-                border: 'none',
-                color: '#fff',
-                '.MuiOutinedInput-notchedOutline': { border: 0 },
-              }}
-              disableUnderline={true}
-              inputProps={{ IconComponet: () => null }}
-            >
-              <MenuItem sx={{ color: 'inherit' }} value='en'>
-                EN
-              </MenuItem>
-              <MenuItem sx={{ color: 'inherit' }} value='ar'>
-                AR
-              </MenuItem>
-            </Select>
-          </FormControl>
-          <Box sx={{ flexGrow: 0 }}>
+
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}
+          >
+            <FormControl size='small'>
+              <Select
+                onChange={(e) => i18n.changeLanguage(e.target.value)}
+                value={t('lang')}
+                size='small'
+                variant='standard'
+                sx={{
+                  boxShadow: 'none',
+                  backgroundColor: 'inherit',
+                  border: 'none',
+                  color: '#fff',
+                  '.MuiOutinedInput-notchedOutline': { border: 0 },
+                }}
+                disableUnderline={true}
+                inputProps={{ IconComponet: () => null }}
+              >
+                <MenuItem sx={{ color: 'inherit' }} value='en'>
+                  EN
+                </MenuItem>
+                <MenuItem sx={{ color: 'inherit' }} value='ar'>
+                  AR
+                </MenuItem>
+              </Select>
+            </FormControl>
             <IconButton
               sx={{ mr: 1 }}
               onClick={toggleColorMode}
