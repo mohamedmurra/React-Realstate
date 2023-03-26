@@ -115,7 +115,7 @@ function Main({ link, setselected }) {
                     />
                   </ListItemAvatar>
                   <ListItemText
-                    primary={ara?.email}
+                    primary={ara?.username}
                     secondary={`Created ${moment(ara.created).format(
                       'YYYY-MM-DD HH:mm'
                     )}`}

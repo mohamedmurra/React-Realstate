@@ -285,6 +285,8 @@ const Header = () => {
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
+              mr: -2,
+              gap: -0.2,
             }}
           >
             <FormControl size='small'>
@@ -311,11 +313,7 @@ const Header = () => {
                 </MenuItem>
               </Select>
             </FormControl>
-            <IconButton
-              sx={{ mr: 1 }}
-              onClick={toggleColorMode}
-              color='inherit'
-            >
+            <IconButton onClick={toggleColorMode} color='inherit'>
               {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
             </IconButton>
 

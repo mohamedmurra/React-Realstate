@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   Tilte: {
     color: 'black',
     fontFamily: 'Nunito',
-    fontSize: { lg: '3rem', md: '3rem', sm: '2rem' },
+    fontSize: { lg: '3rem', md: '3rem', sm: '2rem', xs: '.5rem' },
   },
   ColorText: {
     color: 'rgb(198, 123, 10)',

@@ -41,7 +41,7 @@ const TeamCard = ({ member }) => {
                 <strong>{t('login-phone')}: </strong> {phone_number}
               </p>
               <p>
-                <strong>{t('login-email')}: </strong> {email}
+                <strong>{t('login-@')}: </strong> {email}
               </p>
             </div>
           </div>
