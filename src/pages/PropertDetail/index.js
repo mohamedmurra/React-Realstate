@@ -193,7 +193,12 @@ const PropertyDetail = () => {
                 </div>
               </div>
               <div className='price-detail'>
-                <Typography textAlign='left' variant='h4' component='h2'>
+                <Typography
+                  sx={{ fontSize: { md: '2rem', xs: '1.5rem' } }}
+                  textAlign='left'
+                  variant='h4'
+                  component='h2'
+                >
                   <span style={{ color: 'orangered' }}>{house.title}</span>{' '}
                   <MonetizationOnIcon
                     style={{
@@ -209,7 +214,7 @@ const PropertyDetail = () => {
                     thousandSeparator={true}
                     prefix={'SD '}
                     renderText={(value, props) => (
-                      <span style={{ fontSize: '1rem' }} {...props}>
+                      <span style={{ fontSize: '.9rem' }} {...props}>
                         {value}
                       </span>
                     )}

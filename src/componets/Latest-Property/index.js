@@ -53,6 +53,7 @@ const LatestProperty = ({ pro }) => {
             variant='h4'
             component='h5'
             textAlign='center'
+            sx={{ fontSize: { md: '2rem', xs: '1.5rem' } }}
           >
             <span style={{ borderBottom: '1px solid #B00020' }}>
               {' '}
@@ -65,9 +66,11 @@ const LatestProperty = ({ pro }) => {
               style={{ color: 'inhert', marginTop: 20 }}
               component='h5'
               textAlign='right'
+              sx={{ fontSize: { md: '1.8rem', xs: '.8rem' } }}
             >
               {' '}
-              {t('all-p')}<FaAngleDoubleRight style={{ fontSize: '.5rem' }} />
+              {t('all-p')}
+              <FaAngleDoubleRight style={{ fontSize: '.5rem' }} />
             </Typography>
           </Link>
 

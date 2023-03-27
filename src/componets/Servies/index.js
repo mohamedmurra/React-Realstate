@@ -15,6 +15,7 @@ const OurServies = () => {
           style={{ color: 'inhert', marginTop: 30, marginBottom: 25 }}
           component='h5'
           textAlign='center'
+          sx={{ fontSize: { md: '2rem', xs: '1.5rem' } }}
         >
           <span style={{ borderBottom: '1px solid #B00020' }}>
             {' '}
@@ -26,13 +27,19 @@ const OurServies = () => {
         <div className='row'>
           <div className='col-12 col-md-4 text-center'>
             <HomeSharp style={{ fontSize: '5rem' }} />
-            <Typography style={{ marginLeft: 20 }} variant='h4' component='h5'>
+            <Typography
+              sx={{ fontSize: { lg: '2.5rem', md: '2rem', xs: '1.5rem' } }}
+              style={{ marginLeft: 20 }}
+              variant='h4'
+              component='h5'
+            >
               {t('s-sel')}
             </Typography>
             <Typography
               style={{ marginTop: 10, color: 'inherit' }}
               variant='subtitle2'
               component='p'
+              sx={{ fontSize: { md: '.8rem', xs: '.6rem' } }}
             >
               {t('s-sel-1')}
               <br />
@@ -47,20 +54,32 @@ const OurServies = () => {
               style={{ textDecoration: 'none', color: 'inherit' }}
               to='/about-us'
             >
-              <Typography style={{ marginTop: 15 }} variant='p' component='h5'>
+              <Typography
+                sx={{ fontSize: { md: '1.8rem', xs: '1rem' } }}
+                style={{ marginTop: 10 }}
+                variant='p'
+                component='h5'
+                fontWeight='bold'
+              >
                 {t('s-m')} <FaAngleDoubleRight style={{ fontSize: '.5rem' }} />
               </Typography>
             </Link>
           </div>
           <div className='col-12 col-md-4 text-center'>
             <PaidOutlined style={{ fontSize: '5rem' }} />
-            <Typography style={{ marginLeft: 20 }} variant='h4' component='h5'>
+            <Typography
+              sx={{ fontSize: { lg: '2.5rem', md: '2rem', xs: '1.5rem' } }}
+              style={{ marginLeft: 20 }}
+              variant='h4'
+              component='h5'
+            >
               {t('s-buy')}
             </Typography>
             <Typography
               style={{ marginTop: 10, color: 'inherit' }}
               variant='subtitle2'
               component='p'
+              sx={{ fontSize: { md: '.8rem', xs: '.6rem' } }}
             >
               {t('s-buy-1')}
               <br /> {t('s-buy-2')}
@@ -73,7 +92,13 @@ const OurServies = () => {
               style={{ textDecoration: 'none', color: 'inherit' }}
               to='/about-us'
             >
-              <Typography style={{ marginTop: 15 }} variant='p' component='h5'>
+              <Typography
+                sx={{ fontSize: { md: '1.8rem', xs: '1rem' } }}
+                style={{ marginTop: 10 }}
+                variant='p'
+                component='h5'
+                fontWeight='bold'
+              >
                 {t('s-m')}
                 <FaAngleDoubleRight style={{ fontSize: '.5rem' }} />
               </Typography>
@@ -81,13 +106,19 @@ const OurServies = () => {
           </div>
           <div className='col-12 col-md-4 text-center'>
             <AccessTimeRounded style={{ fontSize: '5rem' }} />
-            <Typography style={{ marginLeft: 20 }} variant='h4' component='h5'>
+            <Typography
+              sx={{ fontSize: { lg: '2.5rem', md: '2rem', xs: '1.5rem' } }}
+              style={{ marginLeft: 20 }}
+              variant='h4'
+              component='h5'
+            >
               {t('s-ren')}
             </Typography>
             <Typography
               style={{ marginTop: 10, color: 'inherit' }}
               variant='subtitle2'
               component='p'
+              sx={{ fontSize: { md: '.8rem', xs: '.6rem' } }}
             >
               {t('s-ren-1')}
               <br />
@@ -101,7 +132,13 @@ const OurServies = () => {
               style={{ textDecoration: 'none', color: 'inherit' }}
               to='/about-us'
             >
-              <Typography style={{ marginTop: 15 }} variant='p' component='h5'>
+              <Typography
+                sx={{ fontSize: { md: '1.8rem', xs: '1rem' } }}
+                style={{ marginTop: 10 }}
+                variant='p'
+                component='h5'
+                fontWeight='bold'
+              >
                 {t('s-m')}
                 <FaAngleDoubleRight style={{ fontSize: '.5rem' }} />
               </Typography>

@@ -49,6 +49,7 @@ const TeamMember = ({ Team }) => {
         variant='h4'
         component='h5'
         textAlign='center'
+        sx={{ fontSize: { md: '2rem', xs: '1.5rem' } }}
       >
         <span style={{ borderBottom: '1px solid #B00020' }}>
           {' '}

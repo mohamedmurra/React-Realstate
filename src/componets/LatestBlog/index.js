@@ -52,6 +52,7 @@ const LatestBlog = ({ Lblog }) => {
           variant='h4'
           component='h5'
           textAlign='center'
+          sx={{ fontSize: { md: '2rem', xs: '1.5rem' } }}
         >
           <span style={{ borderBottom: '1px solid #B00020' }}>
             {' '}
@@ -63,6 +64,7 @@ const LatestBlog = ({ Lblog }) => {
             variant='p'
             style={{ color: 'inhert', marginTop: 20 }}
             component='h5'
+            sx={{ fontSize: { md: '1.8rem', xs: '.8rem' } }}
             textAlign='right'
           >
             {' '}
