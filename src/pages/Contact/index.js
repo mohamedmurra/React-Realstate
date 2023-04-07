@@ -1,5 +1,5 @@
 import React, { useContext, useState, useRef, useEffect } from 'react'
-import { TextField, Button, Typography } from '@mui/material'
+import { TextField, Button, Typography, Container } from '@mui/material'
 import TwitterIcon from '@mui/icons-material/Twitter'
 import FacebookIcon from '@mui/icons-material/Facebook'
 import InstagramIcon from '@mui/icons-material/Instagram'
@@ -74,7 +74,7 @@ const Contact = () => {
     sub()
   }
   return (
-    <div className='container'>
+    <Container>
       <div className='row'>
         <Typography
           style={{ marginBottom: 20 }}
@@ -177,6 +177,7 @@ const Contact = () => {
                 </div>
               </form>
             </div>
+
             <div className='col-md-5 section-md-t3'>
               <div className='icon-box section-b2'>
                 <div className='icon-box-icon'>
@@ -275,7 +276,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   )
 }
 

@@ -19,7 +19,8 @@ const useStyles = makeStyles((theme) => ({
   Tilte: {
     color: 'black',
     fontFamily: 'Nunito',
-    fontSize: { lg: '3rem', md: '3rem', sm: '2rem', xs: '.5rem' },
+    fontSize: { lg: '3rem', md: '3rem', sm: '2rem', xs: '.9rem' },
+    fontWeight: 'bold',
   },
   ColorText: {
     color: 'rgb(198, 123, 10)',
@@ -38,7 +39,7 @@ export default function Hero() {
       <CssBaseline />
       <Collapse
         in={checked}
-        {...(checked ? { timeout: 2000 } : {})}
+        {...(checked ? { timeout: 3000 } : {})}
         collapseheight={50}
       >
         <h1 className={classes.Tilte}>
