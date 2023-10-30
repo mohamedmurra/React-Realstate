@@ -330,7 +330,7 @@ const Lucation = () => {
             <IconButton onClick={() => setAria(true)} color='primary'>
               <Add />
             </IconButton>
-            <InputLabel>{t('steps-side-ar')}</InputLabel>
+            <InputLabel>{t('side-ar')}</InputLabel>
             <Select
               label='Type'
               name='aria'
