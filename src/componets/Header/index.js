@@ -289,7 +289,7 @@ const Header = () => {
               gap: -0.2,
             }}
           >
-            <FormControl sx={{ mt: '45px' }} size='small'>
+            <FormControl size='small'>
               <Select
                 onChange={(e) => i18n.changeLanguage(e.target.value)}
                 value={t('lang')}
