@@ -285,7 +285,7 @@ const Header = () => {
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
-              mr: -1,
+              mr: -2,
               gap: -0.2,
             }}
           >
