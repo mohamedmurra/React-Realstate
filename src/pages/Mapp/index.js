@@ -208,7 +208,7 @@ const Mapp = () => {
             <Popup
               latitude={popup.lat}
               longitude={popup.lng}
-              maxWidth='auto'
+              maxWidth='50%'
               closeOnClick={false}
               focusAfterOpen={false}
               onClose={() => setpopup(null)}
