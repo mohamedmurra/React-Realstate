@@ -285,11 +285,11 @@ const Header = () => {
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
-              mr: -2,
+              mr: -1,
               gap: -0.2,
             }}
           >
-            <FormControl size='small'>
+            <FormControl sx={{ mt: '45px' }} size='small'>
               <Select
                 onChange={(e) => i18n.changeLanguage(e.target.value)}
                 value={t('lang')}
