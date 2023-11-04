@@ -22,7 +22,7 @@ export const ColorModeProdvider = ({ children }) => {
         palette: {
           mode,
           primary: {
-            main: '#f48fb1',
+            main: '#26c6da',
             contrastText: '#fff',
           },
           secondary: {
