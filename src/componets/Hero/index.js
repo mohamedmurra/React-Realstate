@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
   },
   Tilte: {
-    color: 'black',
+    color: '#9c27b0',
     fontFamily: 'Nunito',
     fontSize: { lg: '3rem', md: '3rem', sm: '2rem', xs: '.9rem' },
     fontWeight: 'bold',
