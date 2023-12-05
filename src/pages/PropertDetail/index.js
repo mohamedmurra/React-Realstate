@@ -194,7 +194,7 @@ const PropertyDetail = () => {
               </div>
               <div className='price-detail'>
                 <Typography
-                  sx={{ display:'flex', flexDirection:'row',flexWrap:'noWrap,fontSize: { md: '2rem', xs: '1rem' } }}
+                  sx={{ display:'flex', flexDirection:'row',flexWrap:'noWrap, justifyContent:'space-between',fontSize: { md: '2rem', xs: '1rem' } }}
                   textAlign='left'
                   variant='h4'
                   component='h2'
