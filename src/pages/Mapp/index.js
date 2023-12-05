@@ -138,7 +138,7 @@ const Mapp = () => {
             longitude: 12.8628,
           }}
           mapboxAccessToken={MapApi}
-          mapStyle='mapbox://styles/mapbox/streets-v11'
+          mapStyle='mapbox://styles/mapbox/satellite-v9'
           onZoomEnd={(e) => setZoom(Math.round(e.viewState.zoom))}
         >
           {clusters?.map((cluster) => {
